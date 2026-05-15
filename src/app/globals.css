@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8fa;
+  --foreground: #0b2340;
+  --muted: #5f6d7d;
+  --surface: #ffffff;
+  --line: #d9e0e8;
+  --brand: #06315b;
+  --brand-strong: #031f3d;
+  --accent: #c89236;
+  --ink: #061f3d;
+  --green: #276d28;
+  --cyan: #20a8e8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-accent: var(--accent);
+  --color-ink: var(--ink);
+  --color-green: var(--green);
+  --color-cyan: var(--cyan);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+body::selection {
+  background: rgba(15, 118, 110, 0.2);
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.container-shell {
+  width: min(100% - 32px, 1430px);
+  margin-inline: auto;
+}
+
+.header-shell {
+  width: min(100% - 32px, 1430px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1280px) {
+  .header-shell {
+    width: min(100% - 48px, 1320px);
+  }
+}
+
+.card-border {
+  border: 1px solid rgba(6, 31, 61, 0.12);
+}
+
+.nav-shadow {
+  box-shadow: 0 2px 12px rgba(6, 31, 61, 0.08);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(3, 22, 45, 0.92) 0%, rgba(3, 22, 45, 0.78) 34%, rgba(3, 22, 45, 0.18) 70%, rgba(3, 22, 45, 0.02) 100%);
+}

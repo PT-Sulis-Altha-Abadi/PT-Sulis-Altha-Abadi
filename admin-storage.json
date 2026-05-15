@@ -1,0 +1,17 @@
+{
+    "cookies":  [
+                    {
+                        "expires":  -1,
+                        "sameSite":  "Lax",
+                        "secure":  false,
+                        "name":  "psaa_admin_session",
+                        "value":  "1778889914.de2da8fef4c99da4f19c7232bd0788d77fdc34ff58f1b7571a3f1d2420a82e58",
+                        "path":  "/",
+                        "httpOnly":  true,
+                        "domain":  "127.0.0.1"
+                    }
+                ],
+    "origins":  [
+
+                ]
+}
