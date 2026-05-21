@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 import { cn } from "@/lib/utils";
 
 const fieldClass =
-  "min-h-12 w-full rounded-md border border-slate-200 bg-white px-11 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand focus:ring-4 focus:ring-blue-100";
+  "min-h-12 w-full rounded-md border border-slate-200 bg-white px-11 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand focus:ring-4 focus:ring-blue-100 xl:min-h-10 xl:py-2 xl:text-xs";
 
 function FieldIcon({ name }) {
   return (
@@ -46,11 +46,11 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
-      <h2 className="text-2xl font-extrabold text-brand">KIRIM PESAN</h2>
-      <p className="text-lg italic text-slate-700">SEND MESSAGE</p>
+    <form onSubmit={handleSubmit} className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-7 shadow-sm xl:p-4">
+      <h2 className="text-2xl font-extrabold text-brand xl:text-lg">KIRIM PESAN</h2>
+      <p className="text-lg italic text-slate-700 xl:text-sm">SEND MESSAGE</p>
 
-      <div className="mt-6 grid gap-3">
+      <div className="mt-6 grid gap-3 xl:mt-3 xl:gap-2">
         <label className="relative block">
           <FieldIcon name="Users2" />
           <input className={fieldClass} name="name" placeholder="Nama / Name" required minLength={2} />
@@ -64,7 +64,7 @@ export default function ContactForm() {
           <input className={fieldClass} name="company" placeholder="Perusahaan / Company" />
         </label>
         <textarea
-          className="min-h-32 w-full resize-y rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand focus:ring-4 focus:ring-blue-100"
+          className="min-h-32 w-full flex-1 resize-y rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand focus:ring-4 focus:ring-blue-100 xl:min-h-[92px] xl:py-2 xl:text-xs"
           name="message"
           placeholder="Pesan / Message"
           required
@@ -75,7 +75,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status.state === "loading"}
-        className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-md bg-accent px-5 text-sm font-extrabold text-white transition hover:bg-[#b77f2a] disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-md bg-accent px-5 text-sm font-extrabold text-white transition hover:bg-[#b77f2a] disabled:cursor-not-allowed disabled:opacity-70 xl:mt-3 xl:min-h-10 xl:text-xs"
       >
         <Icon name="Send" className="h-5 w-5" />
         Kirim Pesan / <span className="font-medium italic">Send Message</span>

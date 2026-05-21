@@ -1,10 +1,11 @@
 import ButtonLink from "@/components/ui/ButtonLink";
+import Reveal from "@/components/ui/Reveal";
 
 export default function PageHero({ eyebrow, title, description, primaryHref, primaryLabel }) {
   return (
     <section className="border-b border-line bg-white">
       <div className="container-shell grid gap-8 py-16 md:py-20 lg:grid-cols-[1fr_360px] lg:items-end">
-        <div className="max-w-4xl">
+        <Reveal className="max-w-4xl">
           {eyebrow ? (
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand">
               {eyebrow}
@@ -18,11 +19,11 @@ export default function PageHero({ eyebrow, title, description, primaryHref, pri
               {description}
             </p>
           ) : null}
-        </div>
+        </Reveal>
         {primaryHref && primaryLabel ? (
-          <div className="lg:justify-self-end">
+          <Reveal delay={120} className="lg:justify-self-end">
             <ButtonLink href={primaryHref}>{primaryLabel}</ButtonLink>
-          </div>
+          </Reveal>
         ) : null}
       </div>
     </section>

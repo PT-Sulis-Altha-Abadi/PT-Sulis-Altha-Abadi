@@ -12,12 +12,18 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white nav-shadow">
-      <div className="header-shell flex h-[86px] items-center justify-between gap-5 xl:h-[88px] xl:gap-8">
-        <BrandLogo className="max-w-[620px]" />
+      <div
+        className="header-shell grid h-[86px] grid-cols-[1fr_auto] items-center gap-5 xl:h-[78px] xl:grid-cols-[auto_minmax(0,1fr)] xl:gap-8"
+      >
+        <BrandLogo className="max-w-[620px]" dense />
 
-        <nav className="hidden items-stretch gap-2 xl:flex xl:gap-3" aria-label="Navigasi utama">
+        <nav className="hidden items-stretch gap-3 justify-self-center xl:flex" aria-label="Navigasi utama">
           {navigation.map((item) => {
             const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
 
@@ -26,15 +32,19 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative flex min-w-[108px] flex-col items-center justify-center px-3 text-center text-[13px] font-bold text-slate-950 transition hover:text-brand xl:min-w-[118px] xl:px-4 xl:text-[15px]",
-                  item.label.length > 17 && "min-w-[178px] xl:min-w-[210px]",
+                  "relative flex min-w-[100px] flex-col items-center justify-center px-2 text-center text-[13px] font-bold text-slate-950 transition hover:text-brand xl:text-[13px]",
+                  item.label.length > 17 && "xl:min-w-[168px]",
                 )}
               >
                 <span className="whitespace-nowrap">{item.label}</span>
-                <span className="mt-1 text-[11px] font-medium text-slate-500 xl:text-[12px]">{item.subLabel}</span>
+                <span
+                  className="mt-1 text-[11px] font-medium text-slate-500 xl:text-[10px]"
+                >
+                  {item.subLabel}
+                </span>
                 <span
                   className={cn(
-                    "absolute bottom-0 left-3 right-3 h-[3px] bg-transparent transition",
+                    "absolute bottom-0 left-1/2 h-[3px] w-16 -translate-x-1/2 rounded-full bg-transparent transition",
                     active && "bg-brand",
                   )}
                 />

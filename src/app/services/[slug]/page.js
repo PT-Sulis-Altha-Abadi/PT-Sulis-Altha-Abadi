@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Icon from "@/components/Icon";
 import ButtonLink from "@/components/ui/ButtonLink";
 import PageHero from "@/components/ui/PageHero";
+import Reveal from "@/components/ui/Reveal";
 import { services } from "@/data/site";
 
 export function generateStaticParams() {
@@ -49,7 +50,7 @@ export default async function ServiceDetailPage({ params }) {
 
       <section className="bg-background py-16 md:py-24">
         <div className="container-shell grid gap-8 lg:grid-cols-[1fr_360px] lg:items-start">
-          <div className="rounded-lg border border-line bg-white p-6 shadow-sm md:p-8">
+          <Reveal className="rounded-lg border border-line bg-white p-6 shadow-sm md:p-8">
             <span className="grid h-14 w-14 place-items-center rounded-md bg-teal-50 text-brand">
               <Icon name={service.icon} className="h-6 w-6" />
             </span>
@@ -64,9 +65,9 @@ export default async function ServiceDetailPage({ params }) {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <aside className="rounded-lg border border-line bg-white p-6 shadow-sm">
+          <Reveal delay={100} className="rounded-lg border border-line bg-white p-6 shadow-sm">
             <h2 className="text-lg font-semibold text-ink">Deliverables</h2>
             <div className="mt-5 grid gap-3">
               {service.deliverables.map((item) => (
@@ -81,13 +82,13 @@ export default async function ServiceDetailPage({ params }) {
                 Kirim Brief
               </ButtonLink>
             </div>
-          </aside>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-white py-16 md:py-24">
         <div className="container-shell">
-          <div className="mb-8 flex items-end justify-between gap-5">
+          <Reveal className="mb-8 flex items-end justify-between gap-5">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
                 Layanan lain
@@ -97,14 +98,16 @@ export default async function ServiceDetailPage({ params }) {
             <Link href="/services" className="hidden text-sm font-bold text-brand hover:text-brand-strong md:block">
               Semua layanan
             </Link>
-          </div>
+          </Reveal>
           <div className="grid gap-4 md:grid-cols-3">
-            {related.map((item) => (
-              <Link key={item.slug} href={`/services/${item.slug}`} className="rounded-lg border border-line bg-slate-50 p-5 hover:border-brand/40">
-                <Icon name={item.icon} className="h-5 w-5 text-brand" />
-                <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted">{item.summary}</p>
-              </Link>
+            {related.map((item, index) => (
+              <Reveal key={item.slug} delay={index * 80}>
+                <Link href={`/services/${item.slug}`} className="lift-card block rounded-lg border border-line bg-slate-50 p-5 hover:border-brand/40">
+                  <Icon name={item.icon} className="h-5 w-5 text-brand" />
+                  <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted">{item.summary}</p>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import FloatingFaq from "@/components/layout/FloatingFaq";
 import Header from "@/components/layout/Header";
+import PublicViewportFit from "@/components/layout/PublicViewportFit";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,6 +23,11 @@ export const metadata = {
   },
   description:
     "PT Sulis Altha Abadi menghadirkan solusi ekspor rempah, konstruksi barang dan jasa, serta telekomunikasi dengan integritas, kualitas, dan komitmen.",
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -31,9 +37,11 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <PublicViewportFit>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </PublicViewportFit>
         <FloatingFaq />
       </body>
     </html>

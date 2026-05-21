@@ -16,24 +16,30 @@ export default function Footer() {
   const pathname = usePathname();
   const isContactPage = pathname === "/contact";
 
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <footer className="bg-brand text-white">
       {!isContactPage ? (
-        <div className="container-shell grid gap-6 border-b border-white/15 py-7 lg:grid-cols-[260px_1fr_210px] lg:items-center">
+        <div
+          className="container-shell grid gap-6 border-b border-white/15 py-7 lg:grid-cols-[260px_1fr_210px] lg:items-center xl:grid-cols-[190px_1fr_175px] xl:gap-4 xl:py-3"
+        >
           <div>
-            <h2 className="text-xl font-extrabold">HUBUNGI KAMI</h2>
-            <p className="text-base italic text-white/80">CONTACT US</p>
+            <h2 className="text-xl font-extrabold xl:text-base">HUBUNGI KAMI</h2>
+            <p className="text-base italic text-white/80 xl:text-sm">CONTACT US</p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3 xl:gap-3">
             {contactItems.map((item) => (
               <div key={item.title} className="flex items-center gap-3">
-                <span className="grid h-11 w-11 place-items-center rounded-full border border-white/30">
-                  <Icon name={item.icon} className="h-5 w-5" />
+                <span className="grid h-11 w-11 place-items-center rounded-full border border-white/30 xl:h-9 xl:w-9">
+                  <Icon name={item.icon} className="h-5 w-5 xl:h-4 xl:w-4" />
                 </span>
                 <div>
-                  <p className="text-sm font-bold">{item.title}</p>
-                  <p className="text-sm leading-5 text-white/75">{item.value}</p>
+                  <p className="text-sm font-bold xl:text-xs">{item.title}</p>
+                  <p className="text-sm leading-5 text-white/75 xl:text-xs xl:leading-4">{item.value}</p>
                 </div>
               </div>
             ))}
@@ -41,7 +47,10 @@ export default function Footer() {
 
           <Link
             href="/contact"
-            className="inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-accent px-5 text-sm font-extrabold text-white shadow-lg shadow-black/10 transition hover:bg-[#b77f2a]"
+            className={cn(
+              "inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-accent px-5 text-sm font-extrabold text-white shadow-lg shadow-black/10 transition hover:bg-[#b77f2a]",
+              "xl:min-h-10 xl:px-4 xl:text-xs",
+            )}
           >
             Kirim Pesan
             <span className="font-medium italic">Send Message</span>
@@ -54,6 +63,7 @@ export default function Footer() {
         className={cn(
           "container-shell flex flex-col gap-4 text-xs text-white/78 md:flex-row md:items-center md:justify-between",
           isContactPage ? "border-t border-white/15 py-5" : "py-5",
+          "xl:py-2 xl:text-[10px]",
         )}
       >
         <p>© {company.year} {company.name}. All Rights Reserved.</p>

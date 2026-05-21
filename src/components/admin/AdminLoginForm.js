@@ -29,7 +29,7 @@ export default function AdminLoginForm() {
         return;
       }
 
-      window.location.assign("/admin/messages");
+      window.location.assign("/admin");
     } catch {
       setStatus({ state: "error", message: "Koneksi bermasalah. Coba ulang lagi." });
     }
@@ -37,12 +37,12 @@ export default function AdminLoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
-      <label className="grid gap-2 text-sm font-bold text-slate-800">
+      <label className="grid gap-2 text-sm font-bold text-slate-100">
         Username
         <input className={inputClass} name="username" placeholder="Username admin" required />
       </label>
 
-      <label className="grid gap-2 text-sm font-bold text-slate-800">
+      <label className="grid gap-2 text-sm font-bold text-slate-100">
         Password
         <input
           className={inputClass}
@@ -56,7 +56,7 @@ export default function AdminLoginForm() {
       <button
         type="submit"
         disabled={status.state === "loading"}
-        className="inline-flex min-h-[52px] items-center justify-center gap-3 rounded-md bg-brand px-5 text-sm font-extrabold text-white transition hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-70"
+        className="inline-flex min-h-[52px] items-center justify-center gap-3 rounded-md bg-cyan-500 px-5 text-sm font-extrabold text-white transition hover:bg-cyan-600 disabled:cursor-not-allowed disabled:opacity-70"
       >
         <Icon name="Check" className="h-5 w-5" />
         Masuk Admin
@@ -66,7 +66,7 @@ export default function AdminLoginForm() {
         <p
           className={cn(
             "text-sm font-bold",
-            status.state === "loading" && "text-slate-600",
+            status.state === "loading" && "text-slate-300",
             status.state === "error" && "text-red-600",
           )}
         >
