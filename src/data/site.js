@@ -24,7 +24,6 @@ export const divisions = [
     subtitle: "Rempah Premium Indonesia untuk Pasar Dunia",
     enSubtitle: "Premium Indonesian Spices for Global Market",
     href: "/spices-export",
-    detailHref: "/spices-export/products",
     icon: "Leaf",
     image:
       "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=85",
@@ -51,7 +50,7 @@ export const divisions = [
     href: "/telecommunication",
     icon: "RadioTower",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=1200&q=85",
     tone: "purple",
     action: "Lihat Layanan",
     actionEn: "View Services",
@@ -59,9 +58,9 @@ export const divisions = [
 ];
 
 export const clients = [
-  { name: "Adaro", src: "/logos/client-adaro.png", className: "max-h-10" },
   { name: "Waskita", src: "/logos/client-waskita.png", className: "max-h-11" },
   { name: "PT PP", src: "/logos/client-ptpp.webp", className: "max-h-12" },
+  { name: "Adaro", src: "/logos/client-adaro.png", className: "max-h-10" },
   { name: "PLN", src: "/logos/client-pln.svg", className: "max-h-12" },
   { name: "Telkom Indonesia", src: "/logos/client-telkom.svg", className: "max-h-10" },
   { name: "Pelindo", src: "/logos/client-pelindo.png", className: "max-h-9" },
@@ -170,7 +169,7 @@ export const constructionServices = [
     title: "Pekerjaan Konstruksi Sipil",
     en: "Civil Construction Works",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
     points: ["Pembangunan gedung", "Struktur beton & baja", "Pekerjaan finishing"],
   },
   {
@@ -183,7 +182,7 @@ export const constructionServices = [
     title: "Manajemen Proyek",
     en: "Project Management",
     image:
-      "https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
     points: ["Perencanaan & penjadwalan", "Pengawasan & kontrol mutu", "Pengendalian biaya"],
   },
   {

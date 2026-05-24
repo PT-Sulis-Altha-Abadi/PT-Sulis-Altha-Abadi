@@ -4,22 +4,15 @@ import Icon from "@/components/Icon";
 import {
   clients,
   company,
-  constructionClients,
   divisions,
   faqs,
   leaders,
-  telecomPartners,
-  telecommunicationClients,
   trackRecords,
 } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-const allClientLogos = [
-  ...clients,
-  ...constructionClients,
-  ...telecommunicationClients,
-  ...telecomPartners,
-];
+const aboutPreviewImage =
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85";
 
 export function SectionTitle({ title, en, className, compact = false }) {
   return (
@@ -164,14 +157,14 @@ export function DivisionCards({ compact = false }) {
 
 export function ClientLogoGrid({ title = "KLIEN KAMI", en = "OUR CLIENTS", items = clients, compact = false }) {
   return (
-    <section className={cn("rounded-lg border border-slate-200 bg-white p-6 shadow-sm", compact && "xl:p-4")}>
-      <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-base")}>{title}</h2>
-      <p className={cn("text-base italic text-slate-700", compact && "xl:text-xs")}>{en}</p>
-      <div className={cn("mt-5 grid grid-cols-2 gap-3 md:grid-cols-4", compact && "xl:mt-3 xl:gap-2")}>
+    <section className={cn("rounded-lg border border-slate-200 bg-white p-6 shadow-sm", compact && "xl:p-3")}>
+      <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-[15px]")}>{title}</h2>
+      <p className={cn("text-base italic text-slate-700", compact && "xl:text-[11px]")}>{en}</p>
+      <div className={cn("mt-5 grid grid-cols-2 gap-3 md:grid-cols-4", compact && "xl:mt-2 xl:gap-1.5")}>
         {items.map((item) => (
           <div
             key={item.name}
-            className={cn("flex min-h-[72px] items-center justify-center rounded-md border border-slate-200 bg-white px-4 shadow-sm", compact && "xl:min-h-[48px] xl:px-2")}
+            className={cn("flex min-h-[72px] items-center justify-center rounded-md border border-slate-200 bg-white px-4 shadow-sm", compact && "xl:min-h-[40px] xl:px-2")}
           >
             <Image
               src={item.src}
@@ -183,7 +176,7 @@ export function ClientLogoGrid({ title = "KLIEN KAMI", en = "OUR CLIENTS", items
           </div>
         ))}
       </div>
-      <p className={cn("mt-4 text-center text-xs text-slate-600", compact && "xl:mt-2 xl:text-[10px]")}>
+      <p className={cn("mt-4 text-center text-xs text-slate-600", compact && "xl:mt-1.5 xl:text-[11px]")}>
         dan banyak lainnya / <span className="italic">and many more</span>
       </p>
     </section>
@@ -220,16 +213,16 @@ export function PartnerLogoGrid({ title, en, items, compact = false }) {
 
 export function TrackRecordPanel({ compact = false }) {
   return (
-    <section className={cn("rounded-lg border border-slate-200 bg-white p-6 shadow-sm", compact && "xl:p-4")}>
-      <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-base")}>TRACK RECORD KAMI</h2>
-      <p className={cn("text-base italic text-slate-700", compact && "xl:text-xs")}>Our Track Record</p>
-      <div className={cn("mt-5 grid divide-y divide-slate-200 md:grid-cols-3 md:divide-x md:divide-y-0", compact && "xl:mt-3")}>
+    <section className={cn("rounded-lg border border-slate-200 bg-white p-6 shadow-sm", compact && "xl:p-3")}>
+      <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-[16px]")}>TRACK RECORD KAMI</h2>
+      <p className={cn("text-base italic text-slate-700", compact && "xl:text-[12px]")}>Our Track Record</p>
+      <div className={cn("mt-5 grid divide-y divide-slate-200 md:grid-cols-3 md:divide-x md:divide-y-0", compact && "xl:mt-2")}>
         {trackRecords.map((item) => (
           <div key={item.label} className={cn("px-5 py-3 text-center", compact && "xl:px-3 xl:py-2")}>
-            <Icon name={item.icon} className={cn("mx-auto h-12 w-12 text-brand", compact && "xl:h-8 xl:w-8")} />
-            <p className={cn("mt-3 text-4xl font-extrabold text-brand", compact && "xl:mt-2 xl:text-2xl")}>{item.value}</p>
-            <p className={cn("text-sm font-semibold text-slate-800", compact && "xl:text-xs")}>{item.label}</p>
-            <p className={cn("text-xs italic text-slate-600", compact && "xl:text-[10px]")}>{item.enLabel}</p>
+            <Icon name={item.icon} className={cn("mx-auto h-12 w-12 text-brand", compact && "xl:h-7 xl:w-7")} />
+            <p className={cn("mt-3 text-4xl font-extrabold text-brand", compact && "xl:mt-1.5 xl:text-[26px]")}>{item.value}</p>
+            <p className={cn("text-sm font-semibold text-slate-800", compact && "xl:text-[12px]")}>{item.label}</p>
+            <p className={cn("text-xs italic text-slate-600", compact && "xl:text-[11px]")}>{item.enLabel}</p>
           </div>
         ))}
       </div>
@@ -239,54 +232,29 @@ export function TrackRecordPanel({ compact = false }) {
 
 export function AboutPreview({ compact = false }) {
   return (
-    <section className={cn("grid gap-5 rounded-lg border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_330px]", compact && "xl:grid-cols-[1fr_300px] xl:gap-3 xl:p-4")}>
+    <section className={cn("grid gap-5 overflow-hidden rounded-lg border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_220px]", compact && "xl:grid-cols-[1fr_180px] xl:gap-3 xl:p-3")}>
       <div>
-        <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-base")}>TENTANG KAMI</h2>
-        <p className={cn("text-base italic text-slate-700", compact && "xl:text-xs")}>About Us</p>
-        <p className={cn("mt-4 text-sm leading-6 text-slate-700", compact && "xl:mt-3 xl:text-xs xl:leading-5")}>
+        <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-[16px]")}>TENTANG KAMI</h2>
+        <p className={cn("text-base italic text-slate-700", compact && "xl:text-[12px]")}>About Us</p>
+        <p className={cn("mt-4 text-sm leading-6 text-slate-700", compact && "xl:mt-2 xl:text-[12px] xl:leading-[17px]")}>
           PT Sulis Altha Abadi adalah perusahaan yang bergerak di bidang ekspor
-          rempah, konstruksi barang & jasa, dan telekomunikasi dengan komitmen
-          pada kualitas, integritas, dan profesionalisme.
+          rempah (Altha Spices Export), konstruksi barang & jasa, dan telekomunikasi
+          dengan komitmen pada kualitas, integritas, dan profesionalisme.
         </p>
-        <p className={cn("mt-3 text-sm italic leading-6 text-slate-600", compact && "xl:mt-2 xl:text-xs xl:leading-5")}>
-          PT Sulis Altha Abadi is a company engaged in spices export, construction
-          goods & services, and telecommunication with a commitment to quality,
-          integrity, and professionalism.
+        <p className={cn("mt-3 text-sm italic leading-6 text-slate-600", compact && "xl:mt-1.5 xl:text-[11px] xl:leading-[16px]")}>
+          PT Sulis Altha Abadi is a company engaged in spices export
+          (Altha Spices Export), construction goods & services, and telecommunication
+          with a commitment to quality, integrity, and professionalism.
         </p>
       </div>
-      <div className={cn("rounded-md border border-slate-200 bg-slate-50 p-4", compact && "xl:p-3")}>
-        <h3 className={cn("text-sm font-extrabold text-brand", compact && "xl:text-xs")}>
-          KLIEN KAMI
-        </h3>
-        <p className={cn("text-xs italic text-slate-600", compact && "xl:text-[10px]")}>
-          Our Clients
-        </p>
-        <div className={cn("mt-3 grid grid-cols-4 gap-2", compact && "xl:mt-2 xl:gap-1.5")}>
-          {allClientLogos.map((client) => (
-            <div
-              key={client.name}
-              className={cn(
-                "flex h-11 items-center justify-center rounded-md border border-slate-200 bg-white px-2 shadow-sm",
-                compact && "xl:h-8 xl:px-1.5",
-              )}
-              title={client.name}
-            >
-              <Image
-                src={client.src}
-                alt={client.name}
-                width={120}
-                height={44}
-                className={cn(
-                  "h-auto max-h-7 w-auto max-w-full object-contain",
-                  compact && "xl:max-h-5",
-                )}
-              />
-            </div>
-          ))}
-        </div>
-        <p className={cn("mt-3 text-center text-[11px] text-slate-600", compact && "xl:mt-2 xl:text-[9px]")}>
-          dan banyak lainnya / <span className="italic">and many more</span>
-        </p>
+      <div className={cn("relative min-h-[170px] overflow-hidden rounded-md border border-slate-200 bg-slate-100", compact && "xl:min-h-[140px]")}>
+        <Image
+          src={aboutPreviewImage}
+          alt="Gedung kantor PT Sulis Altha Abadi"
+          fill
+          sizes="(min-width: 1024px) 220px, 100vw"
+          className="object-cover object-center"
+        />
       </div>
     </section>
   );
@@ -337,7 +305,7 @@ export function FaqSection() {
 export function ServiceCard({ service, compact = false }) {
   return (
     <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-      <div className={cn("relative", compact ? "aspect-[16/7]" : "aspect-[4/3]")}>
+      <div className={cn("relative", compact ? "aspect-[16/7] xl:aspect-auto xl:h-[78px]" : "aspect-[4/3]")}>
         <Image
           src={service.image}
           alt={service.title}
@@ -346,10 +314,10 @@ export function ServiceCard({ service, compact = false }) {
           className="object-cover"
         />
       </div>
-      <div className={cn("p-5", compact && "xl:p-3")}>
-        <h3 className={cn("text-base font-extrabold leading-tight text-brand", compact && "xl:text-xs")}>{service.title}</h3>
+      <div className={cn("p-5", compact && "xl:p-2.5")}>
+        <h3 className={cn("text-base font-extrabold leading-tight text-brand", compact && "xl:text-[12px]")}>{service.title}</h3>
         <p className={cn("text-sm italic text-slate-700", compact && "xl:text-[10px]")}>{service.en}</p>
-        <ul className={cn("mt-4 grid gap-1.5 text-sm text-slate-700", compact && "xl:mt-2 xl:gap-0.5 xl:text-[10px]")}>
+        <ul className={cn("mt-4 grid gap-1.5 text-sm text-slate-700", compact && "xl:mt-1.5 xl:gap-0.5 xl:text-[11px]")}>
           {service.points.map((point) => (
             <li key={point} className="flex gap-2">
               <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" />
@@ -357,7 +325,7 @@ export function ServiceCard({ service, compact = false }) {
             </li>
           ))}
         </ul>
-        <Link href="/contact" className={cn("mt-5 inline-flex items-center gap-3 text-sm font-bold text-brand", compact && "xl:mt-2 xl:text-[10px]")}>
+        <Link href="/contact" className={cn("mt-5 inline-flex items-center gap-3 text-sm font-bold text-brand", compact && "xl:mt-1.5 xl:text-[11px]")}>
           Selengkapnya
           <Icon name="ArrowRight" className="h-4 w-4" />
         </Link>
@@ -368,13 +336,13 @@ export function ServiceCard({ service, compact = false }) {
 
 export function ProjectStrip({ title, en, projects, compact = false }) {
   return (
-    <section className={cn("rounded-lg border border-slate-200 bg-white p-6 shadow-sm", compact && "xl:p-4")}>
-      <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-base")}>{title}</h2>
-      <p className={cn("text-base italic text-slate-700", compact && "xl:text-xs")}>{en}</p>
-      <div className={cn("mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4", compact && "xl:mt-3 xl:gap-2")}>
+    <section className={cn("rounded-lg border border-slate-200 bg-white p-6 shadow-sm", compact && "xl:p-3")}>
+      <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-[15px]")}>{title}</h2>
+      <p className={cn("text-base italic text-slate-700", compact && "xl:text-[11px]")}>{en}</p>
+      <div className={cn("mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4", compact && "xl:mt-2 xl:gap-2")}>
         {projects.map((project) => (
           <article key={project.title}>
-            <div className={cn("relative aspect-[4/3] overflow-hidden rounded-md bg-slate-200", compact && "xl:aspect-[16/9]")}>
+            <div className={cn("relative aspect-[4/3] overflow-hidden rounded-md bg-slate-200", compact && "xl:aspect-auto xl:h-[68px]")}>
               <Image
                 src={project.image}
                 alt={project.title}
@@ -383,15 +351,11 @@ export function ProjectStrip({ title, en, projects, compact = false }) {
                 className="object-cover"
               />
             </div>
-            <h3 className={cn("mt-2 text-sm font-bold text-slate-900", compact && "xl:mt-1 xl:text-[11px]")}>{project.title}</h3>
-            <p className={cn("text-xs text-slate-600", compact && "xl:text-[10px]")}>{project.meta}</p>
+            <h3 className={cn("mt-2 text-sm font-bold text-slate-900", compact && "xl:mt-1 xl:text-[12px]")}>{project.title}</h3>
+            <p className={cn("text-xs text-slate-600", compact && "xl:text-[11px]")}>{project.meta}</p>
           </article>
         ))}
       </div>
-      <Link href="/portfolio" className={cn("mt-5 flex justify-end gap-2 text-sm font-bold text-brand", compact && "xl:mt-2 xl:text-[11px]")}>
-        Lihat Semua Proyek
-        <Icon name="ArrowRight" className="h-4 w-4" />
-      </Link>
     </section>
   );
 }
@@ -401,7 +365,7 @@ export function ProductCard({ product, compact = false }) {
     <article className={cn("rounded-lg border border-slate-200 bg-white p-5 shadow-sm", compact && "xl:p-4")}>
       <h3 className={cn("font-extrabold text-brand", compact && "xl:text-sm")}>{product.name}</h3>
       <p className={cn("text-sm italic text-slate-600", compact && "xl:text-[11px]")}>{product.en}</p>
-      <div className={cn("relative my-5 aspect-[4/3] overflow-hidden rounded-md bg-green-50", compact && "xl:my-2 xl:aspect-[16/9]")}>
+      <div className={cn("relative my-5 aspect-[4/3] overflow-hidden rounded-md bg-green-50", compact && "xl:my-1.5 xl:aspect-auto xl:h-[100px]")}>
         <Image
           src={product.image}
           alt={product.name}
@@ -423,8 +387,8 @@ export function LeadershipCards({ compact = false }) {
   return (
     <div className={cn("grid gap-7 lg:grid-cols-2", compact && "xl:gap-3")}>
       {leaders.map((leader) => (
-        <article key={leader.name} className={cn("grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm md:grid-cols-[275px_1fr]", compact && "xl:grid-cols-[155px_1fr]")}>
-          <div className={cn("relative min-h-[430px] overflow-hidden bg-brand", compact && "xl:min-h-[205px]")}>
+        <article key={leader.name} className={cn("grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm md:grid-cols-[275px_1fr]", compact && "xl:grid-cols-[140px_1fr]")}>
+          <div className={cn("relative min-h-[430px] overflow-hidden bg-brand", compact && "xl:min-h-[170px]")}>
             <Image
               src={leader.photo}
               alt={leader.name}
@@ -432,28 +396,28 @@ export function LeadershipCards({ compact = false }) {
               sizes="300px"
               className={cn(
                 "object-cover object-top",
-                compact && "xl:origin-top xl:scale-[1.55] xl:object-[50%_8%]",
+                compact && "xl:origin-top xl:scale-[1.45] xl:object-[50%_8%]",
               )}
             />
           </div>
-          <div className={cn("p-7", compact && "xl:p-4")}>
-            <h3 className={cn("text-2xl font-extrabold text-brand", compact && "xl:text-sm")}>{leader.name}</h3>
-            <p className={cn("text-base font-semibold italic text-slate-900", compact && "xl:text-[11px]")}>{leader.role}</p>
-            <p className={cn("mt-4 text-sm leading-6 text-slate-700", compact && "xl:mt-2 xl:text-[10px] xl:leading-4")}>{leader.summary}</p>
+          <div className={cn("p-7", compact && "xl:p-3")}>
+            <h3 className={cn("text-2xl font-extrabold text-brand", compact && "xl:text-[15px]")}>{leader.name}</h3>
+            <p className={cn("text-base font-semibold italic text-slate-900", compact && "xl:text-[12px]")}>{leader.role}</p>
+            <p className={cn("mt-4 text-sm leading-6 text-slate-700", compact && "xl:mt-1.5 xl:text-[11px] xl:leading-[15px]")}>{leader.summary}</p>
 
-            <div className={cn("mt-5 flex gap-3", compact && "xl:mt-2 xl:gap-2")}>
+            <div className={cn("mt-5 flex gap-3", compact && "xl:mt-1.5 xl:gap-2")}>
               <Icon name="GraduationCap" className={cn("mt-1 h-6 w-6 text-brand", compact && "xl:h-4 xl:w-4")} />
               <div>
-                <p className={cn("text-sm font-extrabold text-brand", compact && "xl:text-[10px]")}>Pendidikan</p>
-                <p className={cn("text-sm text-slate-700", compact && "xl:text-[10px]")}>{leader.education}</p>
+                <p className={cn("text-sm font-extrabold text-brand", compact && "xl:text-[11px]")}>Pendidikan</p>
+                <p className={cn("text-sm text-slate-700", compact && "xl:text-[11px]")}>{leader.education}</p>
               </div>
             </div>
 
-            <div className={cn("mt-5 flex gap-3", compact && "xl:mt-2 xl:gap-2")}>
+            <div className={cn("mt-5 flex gap-3", compact && "xl:mt-1.5 xl:gap-2")}>
               <Icon name="BriefcaseBusiness" className={cn("mt-1 h-6 w-6 text-brand", compact && "xl:h-4 xl:w-4")} />
               <div>
-                <p className={cn("text-sm font-extrabold text-brand", compact && "xl:text-[10px]")}>Pengalaman & Fokus</p>
-                <ul className={cn("mt-2 grid gap-1 text-sm text-slate-700", compact && "xl:mt-1 xl:gap-0 xl:text-[9px]")}>
+                <p className={cn("text-sm font-extrabold text-brand", compact && "xl:text-[11px]")}>Pengalaman & Fokus</p>
+                <ul className={cn("mt-2 grid gap-1 text-sm text-slate-700", compact && "xl:mt-0.5 xl:gap-0 xl:text-[10px] xl:leading-[14px]")}>
                   {leader.focus.map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
@@ -461,7 +425,7 @@ export function LeadershipCards({ compact = false }) {
               </div>
             </div>
 
-            <div className={cn("mt-5 flex items-center gap-2 text-sm font-semibold text-brand", compact && "xl:mt-2 xl:text-[9px]")}>
+            <div className={cn("mt-5 flex items-center gap-2 text-sm font-semibold text-brand", compact && "xl:mt-1.5 xl:text-[10px]")}>
               <Icon name="LinkedIn" className={cn("h-5 w-5", compact && "xl:h-3.5 xl:w-3.5")} />
               {leader.linkedin}
               <Icon name="ExternalLink" className={cn("h-4 w-4", compact && "xl:h-3 xl:w-3")} />

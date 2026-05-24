@@ -72,6 +72,12 @@ textarea {
   margin-inline: auto;
 }
 
+@media (min-width: 1280px) {
+  .container-shell.shell-wide {
+    width: min(100% - 16px, 1720px);
+  }
+}
+
 .header-shell {
   width: min(100% - 32px, 1430px);
   margin-inline: auto;
@@ -92,8 +98,13 @@ textarea {
 }
 
 .hero-overlay {
-  background:
-    linear-gradient(90deg, rgba(3, 22, 45, 0.92) 0%, rgba(3, 22, 45, 0.78) 34%, rgba(3, 22, 45, 0.18) 70%, rgba(3, 22, 45, 0.02) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(3, 22, 45, 0.92) 0%,
+    rgba(3, 22, 45, 0.78) 34%,
+    rgba(3, 22, 45, 0.18) 70%,
+    rgba(3, 22, 45, 0.02) 100%
+  );
 }
 
 .reveal {
@@ -156,13 +167,12 @@ textarea {
   z-index: 1;
   pointer-events: none;
   content: "";
-  background:
-    linear-gradient(
-      110deg,
-      transparent 16%,
-      rgba(255, 255, 255, 0.08) 46%,
-      transparent 72%
-    );
+  background: linear-gradient(
+    110deg,
+    transparent 16%,
+    rgba(255, 255, 255, 0.08) 46%,
+    transparent 72%
+  );
   opacity: 0.42;
 }
 
@@ -172,11 +182,16 @@ html.public-fit-active body {
   overflow: hidden;
 }
 
+html.public-fit-active body {
+  background: var(--brand);
+}
+
 .public-viewport-fit.is-fitted {
   position: relative;
   height: 100dvh;
   min-height: 100dvh;
   overflow: hidden;
+  background: var(--brand);
 }
 
 .public-viewport-fit.is-fitted .public-viewport-fit__content {
