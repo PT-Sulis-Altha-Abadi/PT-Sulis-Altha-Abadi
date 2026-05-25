@@ -3,22 +3,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Icon from "@/components/Icon";
-import { company } from "@/data/site";
+import { company, getPageContact } from "@/data/site";
 import { cn } from "@/lib/utils";
-
-const contactItems = [
-  { icon: "MessageCircle", title: "WhatsApp", value: company.phone },
-  { icon: "Mail", title: "Email", value: company.email },
-  { icon: "MapPin", title: "Alamat", value: company.location },
-];
 
 export default function Footer() {
   const pathname = usePathname();
-  const isContactPage = pathname === "/contact";
 
   if (pathname.startsWith("/admin")) {
     return null;
   }
+
+  const isContactPage = pathname === "/contact";
+  const pageContact = getPageContact(pathname);
+
+  const contactItems = [
+    { icon: "MessageCircle", title: "WhatsApp", value: pageContact.phone },
+    { icon: "Mail", title: "Email", value: pageContact.email },
+    { icon: "MapPin", title: "Alamat", value: company.location },
+  ];
 
   return (
     <footer className="bg-brand text-white">

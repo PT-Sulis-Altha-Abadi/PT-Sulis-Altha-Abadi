@@ -513,12 +513,15 @@ export function GoogleMapEmbed({ compact = false }) {
   );
 }
 
-export function ContactInfoList({ compact = false }) {
+export function ContactInfoList({ compact = false, contact }) {
+  const phone = contact?.phone ?? company.phone;
+  const email = contact?.email ?? company.email;
+
   return (
     <div className={cn("grid gap-7", compact && "xl:gap-4")}>
       {[
-        ["MessageCircle", "WhatsApp", company.phone],
-        ["Mail", "Email", company.email],
+        ["MessageCircle", "WhatsApp", phone],
+        ["Mail", "Email", email],
         ["MapPin", "Alamat", company.address],
         ["Clock", "Jam Operasional", "Senin - Jumat : 08.00 - 17.00 WIB\nSabtu : 08.00 - 12.00 WIB"],
       ].map(([icon, title, value]) => (

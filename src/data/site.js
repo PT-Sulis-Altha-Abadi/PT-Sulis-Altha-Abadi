@@ -11,12 +11,45 @@ export const company = {
   name: "PT SULIS ALTHA ABADI",
   tagline: "INTEGRITY • QUALITY • COMMITMENT",
   email: "info@sulisalthaabadi.com",
-  phone: "+62 812-3456-7890",
+  phone: "082288392508",
   location: "Medan, Sumatera Utara, Indonesia",
   address: "Jl. Setia Budi No. 123, Medan, Sumatera Utara, Indonesia",
-  nib: "1234567890123",
+  nib: "8120211251209",
   year: "2025",
 };
+
+export const pageContacts = {
+  default: {
+    email: "info@sulisalthaabadi.com",
+    phone: "082288392508",
+  },
+  "/spices-export": {
+    email: "info@sulisalthaabadi.com",
+    phone: "082288392508",
+  },
+  "/construction": {
+    email: "ptsulisaltha.abadi18@pt-saa.id",
+    phone: "081260553783",
+  },
+  "/telecommunication": {
+    email: "ptsulisaltha.abadi18@pt-saa.id",
+    phone: "081260553783",
+  },
+};
+
+export function getPageContact(pathname) {
+  if (!pathname) {
+    return pageContacts.default;
+  }
+
+  for (const key of Object.keys(pageContacts)) {
+    if (key !== "default" && pathname.startsWith(key)) {
+      return pageContacts[key];
+    }
+  }
+
+  return pageContacts.default;
+}
 
 export const divisions = [
   {
