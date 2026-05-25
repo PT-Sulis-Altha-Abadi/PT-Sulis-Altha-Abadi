@@ -17,7 +17,7 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white nav-shadow">
+    <header data-site-header className="sticky top-0 z-50 border-b border-slate-200 bg-white nav-shadow">
       <div
         className="header-shell grid h-[86px] grid-cols-[1fr_auto] items-center gap-5 xl:h-[78px] xl:grid-cols-[auto_minmax(0,1fr)] xl:gap-8"
       >

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import FloatingFaq from "@/components/layout/FloatingFaq";
 import Header from "@/components/layout/Header";
+import MainShell from "@/components/layout/MainShell";
 import PublicViewportFit from "@/components/layout/PublicViewportFit";
 import "./globals.css";
 
@@ -37,9 +38,9 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
+        <Header />
         <PublicViewportFit>
-          <Header />
-          <main>{children}</main>
+          <MainShell>{children}</MainShell>
           <Footer />
         </PublicViewportFit>
         <FloatingFaq />

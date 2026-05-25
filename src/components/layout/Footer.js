@@ -61,8 +61,7 @@ export default function Footer() {
 
       <div
         className={cn(
-          "container-shell flex flex-col gap-4 text-xs text-white/78 md:flex-row md:items-center md:justify-between",
-          isContactPage ? "border-t border-white/15 py-5" : "py-5",
+          "container-shell flex flex-col gap-4 py-5 text-xs text-white/78 md:flex-row md:items-center md:justify-between",
           "xl:py-2 xl:text-[10px]",
         )}
       >

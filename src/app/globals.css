@@ -73,8 +73,9 @@ textarea {
 }
 
 @media (min-width: 1280px) {
-  .container-shell.shell-wide {
-    width: min(100% - 16px, 1820px);
+  .container-shell.shell-wide,
+  .container-shell.shell-extra {
+    width: min(100% - 8px, 1920px);
   }
 }
 
@@ -85,7 +86,7 @@ textarea {
 
 @media (min-width: 1280px) {
   .header-shell {
-    width: min(100% - 16px, 1820px);
+    width: min(100% - 8px, 1920px);
   }
 }
 
@@ -188,8 +189,8 @@ html.public-fit-active body {
 
 .public-viewport-fit.is-fitted {
   position: relative;
-  height: 100dvh;
-  min-height: 100dvh;
+  height: calc(100dvh - var(--public-fit-header, 0px));
+  min-height: calc(100dvh - var(--public-fit-header, 0px));
   overflow: hidden;
   background: var(--brand);
 }
@@ -198,10 +199,26 @@ html.public-fit-active body {
   position: absolute;
   inset: 0 auto auto 0;
   width: var(--public-fit-width, 100%);
+  min-height: calc(100% * var(--public-fit-inverse, 1));
   transform: scale(var(--public-fit-scale, 1));
   transform-origin: top left;
   transition: none;
   will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+
+.public-viewport-fit.is-fitted .public-viewport-fit__content > main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.public-viewport-fit.is-fitted
+  .public-viewport-fit__content
+  > main
+  > section:last-child {
+  flex: 1 0 auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

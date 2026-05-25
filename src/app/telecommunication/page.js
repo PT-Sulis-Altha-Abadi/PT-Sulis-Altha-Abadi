@@ -23,7 +23,7 @@ export const metadata = {
 export default function TelecommunicationPage() {
   return (
     <>
-      <section className="hero-glow relative min-h-[280px] overflow-hidden bg-slate-900 text-white xl:min-h-[170px]">
+      <section className="hero-glow relative min-h-[280px] overflow-hidden bg-slate-900 text-white xl:min-h-[150px]">
         <Image
           src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=2200&q=88"
           alt="Telekomunikasi"
@@ -33,7 +33,7 @@ export default function TelecommunicationPage() {
           className="object-cover object-[60%_40%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/55 to-slate-950/15" />
-        <div className="container-shell shell-wide relative grid min-h-[280px] items-center xl:min-h-[170px]">
+        <div className="container-shell shell-wide relative grid min-h-[280px] items-center xl:min-h-[150px]">
           <Reveal className="relative z-10 max-w-[600px] py-6 xl:py-2">
             <h1 className="font-serif text-4xl font-extrabold leading-[1.05] text-white md:text-5xl xl:text-[30px]">
               TELEKOMUNIKASI
