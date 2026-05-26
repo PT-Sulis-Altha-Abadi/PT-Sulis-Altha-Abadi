@@ -498,14 +498,19 @@ export function StatsQuoteBand({ compact = false }) {
 }
 
 export function GoogleMapEmbed({ compact = false }) {
-  const mapQuery = encodeURIComponent(company.address);
+  const coords = company.mapCoordinates;
+  const label = encodeURIComponent(company.name);
+  const src = coords
+    ? `https://www.google.com/maps?q=${coords.lat},${coords.lng}(${label})&z=17&output=embed`
+    : `https://www.google.com/maps?q=${encodeURIComponent(company.mapQuery ?? company.address)}&z=17&output=embed`;
 
   return (
     <div className={cn("relative h-full min-h-[380px] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm", compact && "xl:min-h-[210px]")}>
       <iframe
         title="Lokasi PT Sulis Altha Abadi di Google Maps"
-        src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+        src={src}
         allowFullScreen
+        loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         className="absolute inset-0 h-full w-full border-0"
       />

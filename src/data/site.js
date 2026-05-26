@@ -12,8 +12,11 @@ export const company = {
   tagline: "INTEGRITY • QUALITY • COMMITMENT",
   email: "info@sulisalthaabadi.com",
   phone: "082288392508",
-  location: "Medan, Sumatera Utara, Indonesia",
-  address: "Jl. Setia Budi No. 123, Medan, Sumatera Utara, Indonesia",
+  location: "Medan Amplas, Sumatera Utara, Indonesia",
+  address:
+    "Jl. Sumber Bakti No.21, Harjosari II, Kec. Medan Amplas, Kota Medan, Sumatera Utara 20148",
+  mapQuery: "PT Sulis Altha Abadi, Jl. Sumber Bakti No.21, Medan Amplas",
+  mapCoordinates: { lat: 3.5293874, lng: 98.697728 },
   nib: "8120211251209",
   year: "2025",
 };
