@@ -41,7 +41,7 @@ function Card({ children, className = "" }) {
   return (
     <section
       className={cn(
-        "min-w-0 rounded-xl border border-white/10 bg-[#101b2b] p-4 shadow-2xl shadow-black/20",
+        "min-w-0 rounded-xl border border-white/10 bg-[#101b2b] p-3 shadow-2xl shadow-black/20 sm:p-4",
         className,
       )}
     >
@@ -52,11 +52,11 @@ function Card({ children, className = "" }) {
 
 function CardHead({ title, action }) {
   return (
-    <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-3">
-      <h2 className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-white">
+    <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-2 sm:pb-3">
+      <h2 className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-white sm:text-[13px] sm:tracking-[0.14em]">
         {title}
       </h2>
-      {action ? <div className="text-[11px] font-bold text-slate-400">{action}</div> : null}
+      {action ? <div className="text-[10px] font-bold text-slate-400 sm:text-[11px]">{action}</div> : null}
     </div>
   );
 }
@@ -72,25 +72,25 @@ function KpiCard({ label, value, helper, helperPositive = true, icon, tone }) {
   };
 
   return (
-    <article className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#101b2b] p-3.5 shadow-xl shadow-black/20">
+    <article className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#101b2b] p-2.5 shadow-xl shadow-black/20 sm:gap-3 sm:p-3.5">
       <span
         className={cn(
-          "grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br ring-1 2xl:h-14 2xl:w-14",
+          "grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br ring-1 sm:h-12 sm:w-12 2xl:h-14 2xl:w-14",
           tones[tone] ?? tones.emerald,
         )}
       >
-        <Icon name={icon} className="h-5 w-5 2xl:h-6 2xl:w-6" />
+        <Icon name={icon} className="h-4 w-4 sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" />
       </span>
       <div className="min-w-0">
-        <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-slate-400">
+        <p className="text-[9px] font-extrabold uppercase tracking-[0.14em] text-slate-400 sm:text-[10px] sm:tracking-[0.16em]">
           {label}
         </p>
-        <p className="mt-1 break-words text-2xl font-extrabold leading-tight text-white 2xl:text-[26px]">
+        <p className="mt-0.5 break-words text-lg font-extrabold leading-tight text-white sm:mt-1 sm:text-2xl 2xl:text-[26px]">
           {value}
         </p>
         <p
           className={cn(
-            "mt-0.5 text-[11px] font-bold",
+            "text-[10px] font-bold sm:mt-0.5 sm:text-[11px]",
             helperPositive ? "text-emerald-300" : "text-red-300",
           )}
         >
@@ -701,8 +701,8 @@ export default function AdminDashboardClient({ initialData, messages = [] }) {
   const totalProfit = profitSeries.reduce((sum, item) => sum + Number(item.profit || 0), 0);
 
   return (
-    <div className="grid gap-3">
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
+    <div className="grid gap-2 sm:gap-3">
+      <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 2xl:grid-cols-6">
         <KpiCard
           label="Total Lead"
           value={totalLead || 128}
@@ -747,7 +747,7 @@ export default function AdminDashboardClient({ initialData, messages = [] }) {
         />
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="grid gap-2 sm:gap-3 lg:grid-cols-[1.4fr_1fr_1fr]">
         <LineTrendChart
           leads={buyerLeads}
           followUps={followUps}
@@ -758,13 +758,13 @@ export default function AdminDashboardClient({ initialData, messages = [] }) {
         <ProfitChart profitSeries={profitSeries} />
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-[1.2fr_1.1fr_0.95fr]">
+      <div className="grid gap-2 sm:gap-3 lg:grid-cols-[1.2fr_1.1fr_0.95fr]">
         <LeadTable leads={buyerLeads} websiteLeads={websiteLeads} />
         <ClosingActiveTable closings={closings} shipments={shipments} />
         <TopPerformer team={teamPerformance} />
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-4">
+      <div className="grid gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <ActivityToday followUps={followUps} />
         <FollowReminder followUps={followUps} />
         <FinanceSummary profitSeries={profitSeries} />
