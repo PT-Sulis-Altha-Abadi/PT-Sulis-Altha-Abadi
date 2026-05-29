@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import AdminModuleManager from "@/components/admin/AdminModuleManager";
+import AdminSettingsPanel from "@/components/admin/AdminSettingsPanel";
 import AdminShell from "@/components/admin/AdminShell";
 import { adminModuleMap } from "@/data/admin-dashboard-config";
 import { getAdminDashboardData } from "@/lib/admin-dashboard-store";
@@ -38,14 +39,21 @@ export default async function AdminModulePage({ params }) {
     getAdminDashboardData(),
   ]);
 
+  const isSettings = adminModule.sectionKeys.length === 0;
+
   return (
     <AdminShell
       active={adminModule.slug}
       title={adminModule.title}
       description={adminModule.description}
       messagesCount={messages.length}
+      fitToViewport={!isSettings}
     >
-      <AdminModuleManager module={adminModule} initialData={dashboardData} />
+      {isSettings ? (
+        <AdminSettingsPanel />
+      ) : (
+        <AdminModuleManager module={adminModule} initialData={dashboardData} />
+      )}
     </AdminShell>
   );
 }

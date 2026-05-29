@@ -251,3 +251,30 @@ export const monthlyTargets = [
   { label: "Realisasi Container", value: 63 },
   { label: "Prospek Aktif", value: 132 },
 ];
+
+export const documents = [
+  {
+    name: "Invoice Golden Leaf #INV-2401",
+    category: "Invoice",
+    owner: "Alif",
+    status: "Terkirim",
+    date: "2025-05-12",
+    note: "Pembayaran termin pertama kunyit ekspor.",
+  },
+  {
+    name: "Kontrak Nusantara Spice Hub",
+    category: "Kontrak",
+    owner: "Alif",
+    status: "Aktif",
+    date: "2025-04-30",
+    note: "Periode 1 tahun, target 4 container kayu manis.",
+  },
+  {
+    name: "COA Lada Hitam Grade A",
+    category: "Sertifikat",
+    owner: "Awal",
+    status: "Disetujui",
+    date: "2025-05-08",
+    note: "Hasil uji laboratorium independen.",
+  },
+];

@@ -132,6 +132,22 @@ export const editableDashboardSections = [
       { name: "value", label: "Nilai (%)", type: "number", min: 0, required: true },
     ],
   },
+  {
+    key: "documents",
+    title: "Dokumen",
+    shortTitle: "Dokumen",
+    icon: "FileText",
+    description: "Daftar dokumen ekspor, kontrak, invoice, dan file pendukung.",
+    primaryField: "name",
+    fields: [
+      { name: "name", label: "Nama Dokumen", type: "text", required: true },
+      { name: "category", label: "Kategori", type: "text", required: true },
+      { name: "owner", label: "PIC / Pemilik", type: "text", required: true },
+      { name: "status", label: "Status", type: "text", required: true },
+      { name: "date", label: "Tanggal", type: "text", required: true },
+      { name: "note", label: "Catatan", type: "textarea" },
+    ],
+  },
 ];
 
 export const editableDashboardSectionKeys = editableDashboardSections.map((section) => section.key);
@@ -166,20 +182,20 @@ export const adminModules = [
     sectionKeys: ["closings", "shipments"],
   },
   {
-    slug: "products",
-    navLabel: "Produk Ekspor",
-    title: "Produk Ekspor",
-    description: "Kelola stok, demand, dan margin produk ekspor.",
-    icon: "Leaf",
-    sectionKeys: ["exportProducts"],
+    slug: "team",
+    navLabel: "KPI Team",
+    title: "KPI Team",
+    description: "Kelola performa tim berdasarkan lead, follow up, closing, dan skor.",
+    icon: "Award",
+    sectionKeys: ["teamPerformance"],
   },
   {
     slug: "suppliers",
     navLabel: "Supplier & Stock",
     title: "Supplier & Stock",
-    description: "Kelola supplier, kategori, mutu, kapasitas, dan status supply chain.",
+    description: "Kelola supplier, kategori, mutu, kapasitas, dan stok produk ekspor.",
     icon: "DatabaseZap",
-    sectionKeys: ["suppliers"],
+    sectionKeys: ["suppliers", "exportProducts"],
   },
   {
     slug: "finance",
@@ -190,12 +206,20 @@ export const adminModules = [
     sectionKeys: ["profitSeries", "monthlyTargets"],
   },
   {
-    slug: "team",
-    navLabel: "KPI Team",
-    title: "KPI Team",
-    description: "Kelola performa tim berdasarkan lead, follow up, closing, dan skor.",
-    icon: "Award",
-    sectionKeys: ["teamPerformance"],
+    slug: "documents",
+    navLabel: "Dokumen",
+    title: "Dokumen",
+    description: "Kelola dokumen ekspor, kontrak, invoice, dan file pendukung.",
+    icon: "FileText",
+    sectionKeys: ["documents"],
+  },
+  {
+    slug: "settings",
+    navLabel: "Pengaturan",
+    title: "Pengaturan",
+    description: "Konfigurasi akun admin dan preferensi dashboard.",
+    icon: "Settings",
+    sectionKeys: [],
   },
 ];
 

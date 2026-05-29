@@ -4,6 +4,7 @@ import path from "node:path";
 import {
   buyerLeads,
   closings,
+  documents,
   exportProducts,
   followUps,
   monthlyTargets,
@@ -32,6 +33,7 @@ const defaultDashboardData = {
   profitSeries,
   teamPerformance,
   monthlyTargets,
+  documents,
 };
 
 function shouldUseNetlifyBlobs() {
@@ -221,5 +223,36 @@ export async function deleteDashboardRecord(section, id) {
 
   data[section] = nextRecords;
 
+  return writeDashboardData(data);
+}
+
+
+export async function bulkReplaceDashboardRecords(section, records) {
+  assertSection(section);
+
+  const data = await getAdminDashboardData();
+  const sanitized = records.map((record, index) =>
+    sanitizeRecord(section, {
+      ...record,
+      id: record.id || `${section}-${Date.now()}-${index}-${randomUUID()}`,
+    }),
+  );
+
+  data[section] = sanitized;
+  return writeDashboardData(data);
+}
+
+export async function bulkAppendDashboardRecords(section, records) {
+  assertSection(section);
+
+  const data = await getAdminDashboardData();
+  const sanitized = records.map((record, index) =>
+    sanitizeRecord(section, {
+      ...record,
+      id: record.id || `${section}-${Date.now()}-${index}-${randomUUID()}`,
+    }),
+  );
+
+  data[section] = [...sanitized, ...data[section]];
   return writeDashboardData(data);
 }

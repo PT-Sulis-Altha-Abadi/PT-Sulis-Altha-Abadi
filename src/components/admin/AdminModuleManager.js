@@ -1,8 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import { editableDashboardSectionMap } from "@/data/admin-dashboard-config";
+import {
+  downloadTemplate,
+  exportSectionToExcel,
+  parseExcelFile,
+} from "@/lib/excel-utils";
 import { cn } from "@/lib/utils";
 
 function getDashboardList(data, sectionKey) {
@@ -150,6 +155,8 @@ export default function AdminModuleManager({ module, initialData }) {
   const [formValues, setFormValues] = useState(buildBlankRecord(module.sectionKeys[0]));
   const [status, setStatus] = useState({ state: "idle", message: "" });
   const [deletingId, setDeletingId] = useState("");
+  const [importing, setImporting] = useState(false);
+  const fileInputRef = useRef(null);
   const section = editableDashboardSectionMap[activeSectionKey];
   const records = getDashboardList(data, activeSectionKey);
   const filteredRecords = records.filter((record) => {
@@ -262,6 +269,78 @@ export default function AdminModuleManager({ module, initialData }) {
     }
   }
 
+  function handleDownloadTemplate() {
+    try {
+      downloadTemplate(activeSectionKey);
+      setStatus({ state: "success", message: "Template Excel berhasil diunduh." });
+    } catch (error) {
+      setStatus({ state: "error", message: error.message ?? "Gagal membuat template." });
+    }
+  }
+
+  function handleExportExcel() {
+    try {
+      if (!records.length) {
+        setStatus({ state: "error", message: "Belum ada data untuk diekspor." });
+        return;
+      }
+      exportSectionToExcel(activeSectionKey, records);
+      setStatus({ state: "success", message: "Data berhasil diekspor ke Excel." });
+    } catch (error) {
+      setStatus({ state: "error", message: error.message ?? "Gagal mengekspor data." });
+    }
+  }
+
+  function triggerImport() {
+    fileInputRef.current?.click();
+  }
+
+  async function handleImportFile(event) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    setImporting(true);
+    setStatus({ state: "saving", message: "Membaca file Excel..." });
+
+    try {
+      const parsed = await parseExcelFile(file, activeSectionKey);
+
+      setStatus({
+        state: "saving",
+        message: `Mengimpor ${parsed.length} baris...`,
+      });
+
+      const response = await fetch("/api/admin/dashboard/import", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: activeSectionKey, records: parsed }),
+      });
+      const result = await response.json();
+
+      if (result.data) {
+        setData(result.data);
+      }
+
+      if (!result.ok) {
+        setStatus({
+          state: "error",
+          message: result.message ?? "Import gagal.",
+        });
+        return;
+      }
+
+      setStatus({
+        state: "success",
+        message: result.message ?? `Berhasil mengimpor ${parsed.length} baris.`,
+      });
+    } catch (error) {
+      setStatus({ state: "error", message: error.message ?? "File Excel tidak bisa dibaca." });
+    } finally {
+      setImporting(false);
+    }
+  }
+
   return (
     <div className="grid gap-4">
       {module.sectionKeys.length > 1 ? (
@@ -296,14 +375,51 @@ export default function AdminModuleManager({ module, initialData }) {
             <h2 className="mt-2 text-2xl font-extrabold text-white">{section.title}</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">{section.description}</p>
           </div>
-          <button
-            type="button"
-            onClick={openCreate}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-emerald-500 px-5 text-sm font-extrabold text-white transition hover:bg-emerald-600"
-          >
-            <Icon name="Plus" className="h-4 w-4" />
-            Tambah Data
-          </button>
+          <div className="flex flex-wrap items-center gap-2">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".xlsx,.xls,.csv"
+              onChange={handleImportFile}
+              className="hidden"
+            />
+            <button
+              type="button"
+              onClick={handleDownloadTemplate}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 text-xs font-bold text-slate-200 transition hover:border-cyan-300/40 hover:text-white"
+              title="Unduh template Excel kosong dengan kolom yang benar"
+            >
+              <Icon name="FileText" className="h-4 w-4" />
+              Template
+            </button>
+            <button
+              type="button"
+              onClick={triggerImport}
+              disabled={importing}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-emerald-300/30 bg-emerald-400/10 px-3 text-xs font-bold text-emerald-200 transition hover:border-emerald-300/50 hover:bg-emerald-400/15 disabled:cursor-not-allowed disabled:opacity-60"
+              title="Upload file Excel untuk impor data massal"
+            >
+              <Icon name="Download" className="h-4 w-4 rotate-180" />
+              {importing ? "Mengimpor..." : "Import Excel"}
+            </button>
+            <button
+              type="button"
+              onClick={handleExportExcel}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 text-xs font-bold text-slate-200 transition hover:border-cyan-300/40 hover:text-white"
+              title="Unduh seluruh data sebagai Excel"
+            >
+              <Icon name="Download" className="h-4 w-4" />
+              Export Excel
+            </button>
+            <button
+              type="button"
+              onClick={openCreate}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-emerald-500 px-4 text-xs font-extrabold text-white transition hover:bg-emerald-600"
+            >
+              <Icon name="Plus" className="h-4 w-4" />
+              Tambah Data
+            </button>
+          </div>
         </div>
       </section>
 

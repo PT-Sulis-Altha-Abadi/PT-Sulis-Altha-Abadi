@@ -239,3 +239,29 @@ html.public-fit-active body {
     transition: none;
   }
 }
+
+.admin-viewport-fit {
+  position: relative;
+  width: 100%;
+}
+
+.admin-viewport-fit.is-fitted {
+  overflow: hidden;
+  height: calc(100dvh - var(--admin-header-height, 80px));
+}
+
+.admin-viewport-fit__content {
+  width: 100%;
+}
+
+.admin-viewport-fit.is-fitted .admin-viewport-fit__content {
+  width: var(--admin-fit-width, 100%);
+  transform: scale(var(--admin-fit-scale, 1));
+  transform-origin: top left;
+  will-change: transform;
+}
+
+html.admin-fit-active body,
+html.admin-fit-active {
+  overflow: hidden;
+}

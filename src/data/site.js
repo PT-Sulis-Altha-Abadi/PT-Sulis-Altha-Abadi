@@ -10,7 +10,7 @@ export const navigation = [
 export const company = {
   name: "PT SULIS ALTHA ABADI",
   tagline: "INTEGRITY • QUALITY • COMMITMENT",
-  email: "info@sulisalthaabadi.com",
+  email: "Info@althaspicesexport.com",
   phone: "082288392508",
   location: "Medan Amplas, Sumatera Utara, Indonesia",
   address:
@@ -23,11 +23,11 @@ export const company = {
 
 export const pageContacts = {
   default: {
-    email: "info@sulisalthaabadi.com",
+    email: "Info@althaspicesexport.com",
     phone: "082288392508",
   },
   "/spices-export": {
-    email: "info@sulisalthaabadi.com",
+    email: "Info@althaspicesexport.com",
     phone: "082288392508",
   },
   "/construction": {

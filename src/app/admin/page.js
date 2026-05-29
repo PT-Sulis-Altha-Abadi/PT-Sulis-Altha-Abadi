@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import AdminDashboardClient from "@/components/admin/AdminDashboardClient";
+import AdminDashboardHeaderActions from "@/components/admin/AdminDashboardHeaderActions";
 import AdminShell from "@/components/admin/AdminShell";
 import { getAdminDashboardData } from "@/lib/admin-dashboard-store";
 import { adminSessionCookieName, isAdminSessionValid } from "@/lib/admin-auth";
@@ -27,9 +28,12 @@ export default async function AdminDashboardPage() {
 
   return (
     <AdminShell
-      title="Selamat datang, Owner"
-      description="Pantau semua aktivitas bisnis dalam satu layar: lead, follow up, closing, container, produk, supplier, profit, performa tim, dan target bulanan."
+      title="Selamat datang, Owner 👑"
+      eyebrow="Altha Export Dashboard"
+      description="Pantau semua aktivitas bisnis dalam satu layar."
       messagesCount={messages.length}
+      headerActions={<AdminDashboardHeaderActions />}
+      fitToViewport
     >
       <AdminDashboardClient initialData={dashboardData} messages={messages} />
     </AdminShell>
