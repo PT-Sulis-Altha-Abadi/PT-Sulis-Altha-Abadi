@@ -29,7 +29,8 @@ export default function AdminViewportFit({ children }) {
       }
 
       const containerRect = container.getBoundingClientRect();
-      const availableHeight = Math.max(window.innerHeight - containerRect.top - 4, 200);
+      // Reserve 8px safety margin so bottom edge tidak ketutupan.
+      const availableHeight = Math.max(window.innerHeight - containerRect.top - 12, 200);
 
       const previousTransform = content.style.transform;
       const previousWidth = content.style.width;
@@ -47,7 +48,8 @@ export default function AdminViewportFit({ children }) {
       const heightScale = availableHeight / naturalHeight;
       const widthScale = containerRect.width / naturalWidth;
       const scale = Math.min(1, heightScale, widthScale);
-      const enabled = scale < 0.999;
+      // Lower threshold supaya scale jalan walau cuma ~5% lebih besar dari viewport.
+      const enabled = scale < 0.998;
 
       setFit((prev) => {
         if (Math.abs(prev.scale - scale) < 0.002 && prev.enabled === enabled) {

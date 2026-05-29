@@ -312,36 +312,47 @@ function StatusDonut() {
 }
 
 function ProfitChart({ profitSeries }) {
-  const profit = profitSeries.reduce((sum, item) => sum + Number(item.profit || 0), 0);
-  const safeProfit = profit || 18;
-  const max = Math.max(
-    ...profitSeries.map((item) => Number(item.profit || 0)),
-    1,
-  );
-  const labels = ["Minggu 1", "Minggu 2", "Minggu 3", "Minggu 4", "Minggu 5"];
-  const sliced = profitSeries.slice(0, 5);
+  const fallbackData = [
+    { profit: 6, label: "Minggu 1" },
+    { profit: 9, label: "Minggu 2" },
+    { profit: 13, label: "Minggu 3" },
+    { profit: 17, label: "Minggu 4" },
+    { profit: 19, label: "Minggu 5" },
+  ];
+  const data = profitSeries.length >= 1
+    ? profitSeries.slice(0, 5).map((item, i) => ({
+        profit: Number(item.profit) || fallbackData[i]?.profit || 0,
+        label: fallbackData[i]?.label ?? `M${i + 1}`,
+      }))
+    : fallbackData;
+
+  // Pad to 5 entries with fallback so chart always full
+  while (data.length < 5) {
+    data.push(fallbackData[data.length]);
+  }
+
+  const profit = data.reduce((sum, item) => sum + item.profit, 0);
+  const max = Math.max(...data.map((item) => item.profit), 1);
 
   return (
     <Card>
       <CardHead title="Profit Bulan Ini" action="USD" />
       <p className="mt-3 text-3xl font-extrabold text-emerald-200">
-        {formatMoney(safeProfit * 1000)}
+        {formatMoney(profit * 1000)}
       </p>
       <p className="mt-0.5 text-[11px] font-bold text-emerald-300">
         ↑ 35% dari bulan lalu ($13,800)
       </p>
       <div className="mt-4 flex h-32 items-end gap-3">
-        {Array.from({ length: 5 }).map((_, index) => {
-          const item = sliced[index];
-          const value = item ? Number(item.profit || 0) : Math.max(2, (index + 1) * 3);
-          const heightPct = Math.max(12, (value / max) * 100);
+        {data.map((item, index) => {
+          const heightPct = Math.max(15, (item.profit / max) * 100);
           return (
             <div key={index} className="flex flex-1 flex-col items-center gap-1.5">
               <div
                 className="w-full max-w-9 rounded-t bg-gradient-to-t from-emerald-700 via-emerald-500 to-emerald-300"
                 style={{ height: `${Math.min(heightPct, 100)}%` }}
               />
-              <span className="text-[10px] font-bold text-slate-400">{labels[index]}</span>
+              <span className="text-[10px] font-bold text-slate-400">{item.label}</span>
             </div>
           );
         })}
