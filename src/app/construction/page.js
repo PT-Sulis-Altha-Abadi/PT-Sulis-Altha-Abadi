@@ -9,16 +9,19 @@ import {
 import Reveal from "@/components/ui/Reveal";
 import {
   clients,
+  constructionClients,
   constructionFeatures,
   constructionProjects,
   constructionServices,
 } from "@/data/site";
-
+  
 export const metadata = {
   title: "Konstruksi Barang & Jasa",
   description:
     "Layanan konstruksi terintegrasi PT Sulis Altha Abadi dengan standar kualitas tinggi, perencanaan terstruktur, dan pelaksanaan tepat waktu.",
 };
+
+const constructionClientLogos = [...clients, ...constructionClients];
 
 export default function ConstructionPage() {
   return (
@@ -75,7 +78,12 @@ export default function ConstructionPage() {
             projects={constructionProjects}
             compact
           />
-          <ClientLogoGrid title="KLIEN KAMI" en="OUR CLIENTS" items={clients} compact />
+          <ClientLogoGrid
+            title="KLIEN KAMI"
+            en="OUR CLIENTS"
+            items={constructionClientLogos}
+            compact
+          />
         </div>
       </section>
     </>

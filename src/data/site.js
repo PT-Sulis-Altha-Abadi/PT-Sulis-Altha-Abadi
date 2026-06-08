@@ -10,8 +10,8 @@ export const navigation = [
 export const company = {
   name: "PT SULIS ALTHA ABADI",
   tagline: "INTEGRITY • QUALITY • COMMITMENT",
-  email: "Info@althaspicesexport.com",
-  phone: "082288392508",
+  email: "ptsulisaltha.abadi18@pt-saa.id",
+  phone: "081260553783",
   location: "Medan Amplas, Sumatera Utara, Indonesia",
   address:
     "Jl. Sumber Bakti No.21, Harjosari II, Kec. Medan Amplas, Kota Medan, Sumatera Utara 20148",
@@ -23,8 +23,8 @@ export const company = {
 
 export const pageContacts = {
   default: {
-    email: "Info@althaspicesexport.com",
-    phone: "082288392508",
+    email: "ptsulisaltha.abadi18@pt-saa.id",
+    phone: "081260553783",
   },
   "/spices-export": {
     email: "Info@althaspicesexport.com",
@@ -94,14 +94,10 @@ export const divisions = [
 ];
 
 export const clients = [
-  { name: "Waskita", src: "/logos/client-waskita.png", className: "max-h-11" },
-  { name: "PT PP", src: "/logos/client-ptpp.webp", className: "max-h-12" },
   { name: "Adaro", src: "/logos/client-adaro.png", className: "max-h-10" },
   { name: "PLN", src: "/logos/client-pln.svg", className: "max-h-12" },
   { name: "Telkom Indonesia", src: "/logos/client-telkom.svg", className: "max-h-10" },
   { name: "Pelindo", src: "/logos/client-pelindo.png", className: "max-h-9" },
-  { name: "INKA", src: "/logos/client-inka.svg", className: "max-h-10" },
-  { name: "APRIL", src: "/logos/client-april.png", className: "max-h-10" },
 ];
 
 export const constructionClients = [
@@ -136,6 +132,11 @@ export const constructionClients = [
     className: "max-h-8",
   },
   {
+    name: "PT. TRAKINDO UTAMA",
+    src: "/logos/trakindo.jpg",
+    className: "max-h-12",
+  },
+  {
     name: "PT Link Net Tbk",
     src: "/logos/PT Link Net Tbk (Kontruksi Sipil).jpeg",
     className: "max-h-11",
@@ -163,12 +164,6 @@ export const telecommunicationClients = [
 export const telecomPartners = [
   { name: "Telkomsel", src: "/logos/telkomsel.svg", className: "max-h-8" },
   { name: "Indosat", src: "/logos/indosat.svg", className: "max-h-9" },
-  { name: "XL Axiata", src: "/logos/xl-axiata.svg", className: "max-h-11" },
-  { name: "ZTE", src: "/logos/zte.svg", className: "max-h-8" },
-  { name: "Huawei", src: "/logos/huawei.svg", className: "max-h-7" },
-  { name: "Nokia", src: "/logos/nokia.svg", className: "max-h-7" },
-  { name: "Ericsson", src: "/logos/ericsson.svg", className: "max-h-8" },
-  { name: "FiberHome", src: "/logos/fiberhome-logo.png", className: "max-h-8" },
 ];
 
 export const trackRecords = [
@@ -222,11 +217,11 @@ export const constructionServices = [
     points: ["Perencanaan & penjadwalan", "Pengawasan & kontrol mutu", "Pengendalian biaya"],
   },
   {
-    title: "Pembangunan Infrastruktur",
-    en: "Infrastructure Development",
+    title: "Pembangunan Restoran F&B",
+    en: "F&B Restaurant Development",
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80",
-    points: ["Infrastruktur jalan & jembatan", "Drainase & utilitas", "Pekerjaan struktur lainnya"],
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+    points: ["Pembangunan area restoran", "Instalasi utilitas F&B", "Finishing interior & eksterior"],
   },
 ];
 
@@ -326,7 +321,7 @@ export const faqs = [
   {
     question: "Layanan konstruksi apa yang tersedia?",
     answer:
-      "Layanan konstruksi mencakup pekerjaan sipil, pengadaan material, manajemen proyek, dan pembangunan infrastruktur.",
+      "Layanan konstruksi mencakup pekerjaan sipil, pengadaan material, manajemen proyek, dan pembangunan restoran F&B.",
   },
   {
     question: "Apa saja layanan telekomunikasi yang ditawarkan?",
@@ -353,21 +348,22 @@ export const constructionProjects = [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: "Pabrik Industri",
-    meta: "Sumatera Utara, 2022",
+    title: "Pembangunan PJO Tenaga Surya",
+    meta: "Balige, 2025",
     image:
-      "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: "Jalan & Drainase",
-    meta: "Kalimantan, 2023",
-    image: "/images/projects/road-drainage.jpg",
+    title: "Fiber Optik",
+    meta: "Sumatra Utara, 2025",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: "Jembatan Beton",
-    meta: "Riau, 2024",
+    title: "Pembangunan Restoran F&B",
+    meta: "Tanjung Balai, 2025",
     image:
-      "https://images.unsplash.com/photo-1534190239940-9ba8944ea261?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
   },
 ];
 

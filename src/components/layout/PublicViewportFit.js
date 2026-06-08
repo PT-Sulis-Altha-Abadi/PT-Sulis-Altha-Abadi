@@ -74,9 +74,14 @@ export default function PublicViewportFit({ children }) {
   // Reset to default on every route change so the previous page's scale doesn't bleed in.
   useLayoutEffect(() => {
     if (isAdmin) {
-      return;
+      return undefined;
     }
-    setFit(defaultFit);
+
+    const frameId = window.requestAnimationFrame(() => {
+      setFit(defaultFit);
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, [isAdmin, pathname]);
 
   useLayoutEffect(() => {
