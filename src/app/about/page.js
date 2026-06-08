@@ -45,14 +45,23 @@ export default function AboutPage() {
           <Reveal>
             <article className="hero-glow relative h-full min-h-[260px] overflow-hidden rounded-lg bg-slate-900 text-white xl:min-h-[210px]">
               <Image
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=88"
+                src="/images/ptsulisaltha.jpg"
                 alt="PT Sulis Altha Abadi"
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover object-center"
+                className="scale-105 object-cover object-center opacity-45 blur-[2px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/70 to-slate-950/35" />
+              <Image
+                src="/images/ptsulisaltha.jpg"
+                alt=""
+                fill
+                priority
+                aria-hidden="true"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain object-right"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/72 to-slate-950/10" />
               <div className="relative z-10 flex h-full items-center px-7 py-6 xl:px-5 xl:py-3">
                 <div className="max-w-[480px]">
                   <h1 className="font-serif text-4xl font-extrabold leading-[1.05] text-white md:text-5xl xl:text-[36px]">

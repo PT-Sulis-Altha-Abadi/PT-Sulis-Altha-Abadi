@@ -97,7 +97,6 @@ export const clients = [
   { name: "Adaro", src: "/logos/client-adaro.png", className: "max-h-10" },
   { name: "PLN", src: "/logos/client-pln.svg", className: "max-h-12" },
   { name: "Telkom Indonesia", src: "/logos/client-telkom.svg", className: "max-h-10" },
-  { name: "Pelindo", src: "/logos/client-pelindo.png", className: "max-h-9" },
 ];
 
 export const constructionClients = [
@@ -162,12 +161,11 @@ export const telecommunicationClients = [
 ];
 
 export const telecomPartners = [
-  { name: "Telkomsel", src: "/logos/telkomsel.svg", className: "max-h-8" },
   { name: "Indosat", src: "/logos/indosat.svg", className: "max-h-9" },
 ];
 
 export const trackRecords = [
-  { value: "15+", label: "Proyek Selesai", enLabel: "Completed Projects", icon: "ClipboardCheck" },
+  { value: "30+", label: "Proyek Selesai", enLabel: "Completed Projects", icon: "ClipboardCheck" },
   { value: "10+", label: "Mitra Bisnis", enLabel: "Business Partners", icon: "Handshake" },
   { value: "5+", label: "Negara Tujuan Ekspor", enLabel: "Export Destinations", icon: "Globe2" },
 ];
