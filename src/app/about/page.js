@@ -35,7 +35,7 @@ const allClientLogos = [
   ...constructionClients,
   ...telecommunicationClients,
   ...telecomPartners,
-];
+].filter((client) => client.name !== "Adaro");
 
 export default function AboutPage() {
   return (

@@ -402,6 +402,7 @@ export const leaders = [
     education: "S1 Manajemen, Universitas Harapan Medan",
     focus: ["Pengembangan pasar ekspor", "Business development", "Strategi pemasaran internasional", "Negosiasi & komunikasi buyer luar negeri", "Supply chain coordination"],
     linkedin: "linkedin.com/in/alifavicienahendrisyah",
+    linkedinUrl: "https://www.linkedin.com/in/alif-aviciena-hendrisyah-533683406/",
   },
   {
     name: "Awal Surya Hendrisyah",
@@ -412,6 +413,7 @@ export const leaders = [
     education: "S1 Teknik Sipil, Institut Teknologi Medan (ITM)",
     focus: ["15+ tahun di industri konstruksi", "Manajemen proyek konstruksi", "Pengendalian mutu & keselamatan kerja", "Perencanaan & pelaksanaan proyek", "Pengelolaan tim & sumber daya"],
     linkedin: "linkedin.com/in/awalsuryahendrisyah",
+    linkedinUrl: "https://www.linkedin.com/in/awal-surya-hendrisyah-20a38944/",
   },
 ];
 

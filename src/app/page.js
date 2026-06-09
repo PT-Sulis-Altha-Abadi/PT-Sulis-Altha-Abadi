@@ -4,9 +4,23 @@ import Icon from "@/components/Icon";
 import Reveal from "@/components/ui/Reveal";
 import {
   AboutPreview,
+  ClientLogoGrid,
   DivisionCards,
   TrackRecordPanel,
 } from "@/components/sections/CorporateSections";
+import {
+  clients,
+  constructionClients,
+  telecomPartners,
+  telecommunicationClients,
+} from "@/data/site";
+
+const homeClientLogos = [
+  ...clients,
+  ...constructionClients,
+  ...telecommunicationClients,
+  ...telecomPartners,
+].filter((client) => client.name !== "Adaro");
 
 export default function Home() {
   return (
@@ -75,7 +89,8 @@ export default function Home() {
       </section>
 
       <section className="bg-slate-50 pb-3 xl:pb-1.5">
-        <div className="container-shell shell-wide grid gap-4 lg:grid-cols-[0.85fr_1fr] xl:gap-2">
+        <div className="container-shell shell-wide grid gap-4 lg:grid-cols-[0.9fr_0.8fr_1.15fr] xl:gap-2">
+          <ClientLogoGrid items={homeClientLogos} compact />
           <TrackRecordPanel compact />
           <AboutPreview compact />
         </div>

@@ -4,22 +4,12 @@ import Icon from "@/components/Icon";
 import {
   clients,
   company,
-  constructionClients,
   divisions,
   faqs,
   leaders,
-  telecomPartners,
-  telecommunicationClients,
   trackRecords,
 } from "@/data/site";
 import { cn } from "@/lib/utils";
-
-const allClientLogos = [
-  ...clients,
-  ...constructionClients,
-  ...telecommunicationClients,
-  ...telecomPartners,
-];
 
 export function SectionTitle({ title, en, className, compact = false }) {
   return (
@@ -239,8 +229,30 @@ export function TrackRecordPanel({ compact = false }) {
 
 export function AboutPreview({ compact = false }) {
   return (
-    <section className={cn("grid gap-5 overflow-hidden rounded-lg border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_360px]", compact && "xl:grid-cols-[1fr_300px] xl:gap-3 xl:p-3")}>
-      <div>
+    <section
+      className={cn(
+        "relative min-h-[300px] overflow-hidden rounded-lg border border-slate-200 bg-white p-6 shadow-sm",
+        compact && "xl:min-h-[180px] xl:p-4",
+      )}
+    >
+      <Image
+        src="/images/ptsulisaltha.jpg"
+        alt="Kantor PT Sulis Altha Abadi"
+        fill
+        sizes="(min-width: 1280px) 760px, 100vw"
+        className="scale-105 object-cover object-center opacity-65 blur-[1px]"
+      />
+      <Image
+        src="/images/ptsulisaltha.jpg"
+        alt=""
+        fill
+        aria-hidden="true"
+        sizes="(min-width: 1280px) 760px, 100vw"
+        className="object-contain object-right opacity-100"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/98 via-white/88 to-transparent md:from-white/98 md:via-white/82 md:to-transparent" />
+
+      <div className="relative z-10 max-w-[78%] md:max-w-[62%]">
         <h2 className={cn("text-xl font-extrabold text-brand", compact && "xl:text-[18px]")}>TENTANG KAMI</h2>
         <p className={cn("text-base italic text-slate-700", compact && "xl:text-[13px]")}>About Us</p>
         <p className={cn("mt-4 text-sm leading-6 text-slate-700", compact && "xl:mt-2 xl:text-[13px] xl:leading-[18px]")}>
@@ -252,36 +264,6 @@ export function AboutPreview({ compact = false }) {
           PT Sulis Altha Abadi is a company engaged in spices export
           (Altha Spices Export), construction goods & services, and telecommunication
           with a commitment to quality, integrity, and professionalism.
-        </p>
-      </div>
-      <div className={cn("rounded-md border border-slate-200 bg-slate-50 p-3", compact && "xl:p-2")}>
-        <h3 className={cn("text-sm font-extrabold text-brand", compact && "xl:text-[12px]")}>KLIEN KAMI</h3>
-        <p className={cn("text-xs italic text-slate-600", compact && "xl:text-[11px]")}>Our Clients</p>
-        <div className={cn("mt-2 grid grid-cols-4 gap-1.5", compact && "xl:mt-1.5 xl:gap-1")}>
-          {allClientLogos.map((client) => (
-            <div
-              key={client.name}
-              className={cn(
-                "flex h-11 items-center justify-center rounded-md border border-slate-200 bg-white px-1.5 shadow-sm",
-                compact && "xl:h-7 xl:px-1",
-              )}
-              title={client.name}
-            >
-              <Image
-                src={client.src}
-                alt={client.name}
-                width={120}
-                height={44}
-                className={cn(
-                  "h-auto max-h-7 w-auto max-w-full object-contain",
-                  compact && "xl:max-h-4",
-                )}
-              />
-            </div>
-          ))}
-        </div>
-        <p className={cn("mt-2 text-center text-[11px] text-slate-600", compact && "xl:mt-1.5 xl:text-[10px]")}>
-          dan banyak lainnya / <span className="italic">and many more</span>
         </p>
       </div>
     </section>
@@ -455,11 +437,20 @@ export function LeadershipCards({ compact = false }) {
               </div>
             </div>
 
-            <div className={cn("mt-5 flex items-center gap-2 text-sm font-semibold text-brand", compact && "xl:mt-2 xl:text-[11px]")}>
+            <a
+              href={leader.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Buka profil LinkedIn ${leader.name}`}
+              className={cn(
+                "mt-5 flex w-fit items-center gap-2 text-sm font-semibold text-brand transition hover:text-[#0a66c2] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40",
+                compact && "xl:mt-2 xl:text-[11px]",
+              )}
+            >
               <Icon name="LinkedIn" className={cn("h-5 w-5", compact && "xl:h-3.5 xl:w-3.5")} />
               {leader.linkedin}
               <Icon name="ExternalLink" className={cn("h-4 w-4", compact && "xl:h-3 xl:w-3")} />
-            </div>
+            </a>
           </div>
         </article>
       ))}
