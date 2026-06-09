@@ -21,7 +21,9 @@ export const metadata = {
     "Layanan konstruksi terintegrasi PT Sulis Altha Abadi dengan standar kualitas tinggi, perencanaan terstruktur, dan pelaksanaan tepat waktu.",
 };
 
-const constructionClientLogos = [...clients, ...constructionClients];
+const constructionClientLogos = [...clients, ...constructionClients].filter(
+  (client) => client.name !== "Adaro",
+);
 
 export default function ConstructionPage() {
   return (
