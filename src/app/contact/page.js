@@ -7,7 +7,6 @@ import {
   SectionTitle,
   StatsQuoteBand,
 } from "@/components/sections/CorporateSections";
-import { leaders } from "@/data/site";
 import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
@@ -40,24 +39,14 @@ export default function ContactPage() {
           <Reveal delay={70}>
             <article className="hero-glow relative h-full min-h-[320px] overflow-hidden rounded-lg bg-brand text-white xl:min-h-[420px]">
               <Image
-                src="/images/contact-hero-executives.png"
-                alt="Pimpinan PT Sulis Altha Abadi"
+                src="/images/projects/road-drainage.jpg"
+                alt="Dokumentasi proyek PT Sulis Altha Abadi"
                 fill
                 priority
                 sizes="(min-width: 1024px) 25vw, 100vw"
-                className="object-cover object-[50%_28%]"
+                className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand/55 via-transparent to-transparent" />
-              <div className="absolute inset-x-3 bottom-3 grid gap-2 xl:inset-x-2.5 xl:bottom-2.5 xl:gap-1.5">
-                {leaders.map((leader, index) => (
-                  <Reveal key={leader.name} delay={index * 90}>
-                    <div className="rounded-md bg-brand/95 px-3 py-2 text-white shadow-2xl backdrop-blur-[2px] xl:px-2.5 xl:py-1.5">
-                      <h2 className="text-sm font-extrabold xl:text-[11px]">{leader.name.toUpperCase()}</h2>
-                      <p className="mt-0.5 text-xs font-medium italic xl:text-[10px]">{leader.role}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand/35 via-transparent to-transparent" />
             </article>
           </Reveal>
 

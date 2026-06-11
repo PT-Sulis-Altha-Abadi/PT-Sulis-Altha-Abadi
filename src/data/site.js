@@ -660,7 +660,7 @@ export const leaders = [
   {
     name: "Alif Aviciena Hendrisyah",
     role: "CEO - Altha Spices Export",
-    photo: "/images/leader-alif.png",
+    photo: "/images/leader-alif-new.jpeg",
     summary:
       "Memimpin divisi ekspor rempah dengan fokus pada penguatan jaringan global, pengendalian kualitas, dan pengembangan pasar internasional.",
     education: "S1 Manajemen, Universitas Harapan Medan",
@@ -671,7 +671,7 @@ export const leaders = [
   {
     name: "Awal Surya Hendrisyah",
     role: "CEO - Konstruksi Barang & Jasa",
-    photo: "/images/leader-awal.png",
+    photo: "/images/leader-awal-new.jpeg",
     summary:
       "Memimpin divisi konstruksi dengan komitmen pada keselamatan kerja, ketepatan waktu, serta standar mutu tinggi dalam setiap proyek.",
     education: "S1 Teknik Sipil, Institut Teknologi Medan (ITM)",
