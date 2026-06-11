@@ -384,7 +384,10 @@ export function ProductCard({ product, compact = false }) {
           className={cn("object-cover", product.imageClassName)}
         />
       </div>
-      <Link href="/contact" className={cn("inline-flex items-center gap-3 text-sm font-bold text-brand", compact && "xl:text-[11px]")}>
+      <Link
+        href={`/spices-export/products/${product.slug}`}
+        className={cn("inline-flex items-center gap-3 text-sm font-bold text-brand", compact && "xl:text-[11px]")}
+      >
         Lihat Detail
         <span className="font-medium italic text-slate-600">View Detail</span>
         <Icon name="ArrowRight" className="h-4 w-4" />

@@ -263,32 +263,296 @@ export const telecomServices = [
 
 export const spicesProducts = [
   {
+    slug: "kunyit",
     name: "KUNYIT",
     en: "Turmeric",
     image:
       "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=80",
   },
   {
+    slug: "jahe",
     name: "JAHE",
     en: "Ginger",
     image: "/images/products/ginger-alt.png",
     imageClassName: "object-contain p-4",
   },
   {
+    slug: "kayu-manis",
     name: "KAYU MANIS",
     en: "Cinnamon",
     image: "/images/products/cinnamon.jpg",
   },
   {
+    slug: "lada-hitam",
     name: "LADA HITAM",
     en: "Black Pepper",
     image: "/images/products/black-pepper.jpg",
   },
   {
+    slug: "temulawak",
     name: "TEMULAWAK",
     en: "Curcuma Xanthorrhiza",
     image:
       "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80",
+  },
+];
+
+export const spiceProductDetails = [
+  {
+    slug: "kunyit",
+    name: "KUNYIT",
+    en: "Turmeric",
+    scientificName: "Curcuma longa",
+    heroImage:
+      "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=1500&q=88",
+    summary:
+      "Kunyit berkualitas tinggi dengan warna kuning-oranye cerah, aroma khas, dan kandungan kurkumin alami yang tinggi.",
+    features: [
+      { title: "Alami & Murni", en: "100% Natural", icon: "Leaf" },
+      { title: "Kualitas Terjamin", en: "Export Standard", icon: "ShieldCheck" },
+    ],
+    productsTitle: "Produk Kunyit Kami",
+    variants: [
+      {
+        name: "Kunyit Segar",
+        en: "Fresh Turmeric",
+        image:
+          "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Kunyit Kering",
+        en: "Dried Turmeric",
+        image:
+          "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Kunyit Bubuk",
+        en: "Turmeric Powder",
+        image:
+          "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Oleoresin Kunyit",
+        en: "Turmeric Oleoresin",
+        image:
+          "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?auto=format&fit=crop&w=700&q=85",
+      },
+    ],
+    specs: [
+      { label: "Nama Produk", value: "Kunyit" },
+      { label: "Asal", value: "Indonesia" },
+      { label: "Bentuk", value: "Segar, kering, bubuk, oleoresin" },
+      { label: "Warna", value: "Kuning-oranye cerah alami" },
+      { label: "Aroma", value: "Khas kunyit, kuat" },
+      { label: "Kandungan Kurkumin", value: "Minimal 3% - 5%" },
+      { label: "Kadar Air", value: "Maks. 10% - 12% kering, maks. 8% bubuk" },
+      { label: "Kemasan", value: "25 kg/karung atau sesuai permintaan" },
+    ],
+    standards: [
+      "Kadar air kunyit kering maksimal 10% - 12%.",
+      "Benda asing maksimal 1% - 2%.",
+      "Kunyit segar harus utuh, bersih dari tanah, tidak keriput, dan tidak bertunas.",
+      "Kunyit bubuk halus 60 - 80 mesh dan tanpa pewarna tambahan.",
+      "Bebas serangga, jamur, aflatoksin, dan residu pestisida.",
+    ],
+  },
+  {
+    slug: "jahe",
+    name: "JAHE",
+    en: "Ginger",
+    scientificName: "Zingiber officinale",
+    heroImage: "/images/products/ginger-alt2.jpg",
+    summary:
+      "Jahe ekspor dengan rimpang utuh, aroma hangat khas, bersih dari tanah, serta bebas hama, penyakit, dan jamur.",
+    features: [
+      { title: "Rimpang Pilihan", en: "Selected Rhizome", icon: "BadgeCheck" },
+      { title: "Standar Pangan", en: "Food Safety", icon: "ShieldCheck" },
+    ],
+    productsTitle: "Produk Jahe Kami",
+    variants: [
+      { name: "Jahe Segar", en: "Fresh Ginger", image: "/images/products/ginger-alt.png" },
+      { name: "Jahe Kering", en: "Dried Ginger", image: "/images/products/ginger.jpg" },
+      { name: "Jahe Bubuk", en: "Ginger Powder", image: "/images/products/ginger-alt2.jpg" },
+      { name: "Jahe Emprit", en: "Small White Ginger", image: "/images/products/ginger-alt.png" },
+    ],
+    specs: [
+      { label: "Nama Produk", value: "Jahe" },
+      { label: "Asal", value: "Indonesia" },
+      { label: "Jenis Utama", value: "Jahe gajah dan jahe emprit" },
+      { label: "Bentuk", value: "Segar, kering, bubuk" },
+      { label: "Kondisi Fisik", value: "Rimpang utuh, tidak busuk, tidak berjamur" },
+      { label: "Kebersihan", value: "Bebas tanah, batu, dan kotoran lainnya" },
+      { label: "Kadar Air", value: "Maks. 10% - 14% untuk jahe kering" },
+      { label: "Kemasan", value: "Karung food grade atau sesuai buyer" },
+    ],
+    standards: [
+      "Rimpang jahe harus utuh dan bersih dari tanah.",
+      "Bebas dari hama, penyakit, dan jamur.",
+      "Kualitas memenuhi standar keamanan pangan internasional.",
+      "Kadar air jahe kering maksimal 10% - 14%.",
+      "Sortasi dilakukan untuk menjaga ukuran dan kondisi fisik produk.",
+    ],
+  },
+  {
+    slug: "kayu-manis",
+    name: "KAYU MANIS",
+    en: "Cinnamon",
+    scientificName: "Cinnamomum burmannii",
+    heroImage: "/images/products/cinnamon.jpg",
+    summary:
+      "Kayu manis cassia Indonesia dengan warna cokelat kemerahan alami, aroma kuat, kering, bersih, dan bebas hama.",
+    features: [
+      { title: "Cassia Indonesia", en: "Indonesian Cassia", icon: "Leaf" },
+      { title: "Aroma Kuat", en: "Rich Aroma", icon: "Award" },
+    ],
+    productsTitle: "Produk Kayu Manis Kami",
+    variants: [
+      { name: "Kayu Manis Batang", en: "Cinnamon Stick", image: "/images/products/cinnamon.jpg" },
+      {
+        name: "Kayu Manis Pecah",
+        en: "Broken Cinnamon",
+        image:
+          "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Kayu Manis Bubuk",
+        en: "Cinnamon Powder",
+        image:
+          "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Minyak Kayu Manis",
+        en: "Cinnamon Oil",
+        image:
+          "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?auto=format&fit=crop&w=700&q=85",
+      },
+    ],
+    specs: [
+      { label: "Nama Produk", value: "Kayu Manis" },
+      { label: "Jenis", value: "Cinnamomum burmannii (Cassia Indonesia)" },
+      { label: "Asal", value: "Indonesia" },
+      { label: "Bentuk", value: "Batang, broken, bubuk, minyak" },
+      { label: "Warna", value: "Cokelat kemerahan alami" },
+      { label: "Kadar Air", value: "Maksimal 12% - 13%" },
+      { label: "Minyak Atsiri", value: "Minimal 1% - 2,5%" },
+      { label: "Kemasan", value: "Karung/karton food grade sesuai permintaan" },
+    ],
+    standards: [
+      "Bahan asing 0% sesuai standar mutu dokumen.",
+      "Kondisi fisik bersih, kering, dan tidak berjamur.",
+      "Warna cokelat kemerahan alami dan seragam.",
+      "Bebas serangga dan hama.",
+      "Kadar air maksimal 12% - 13% untuk menjaga kualitas pengiriman.",
+    ],
+  },
+  {
+    slug: "lada-hitam",
+    name: "LADA HITAM",
+    en: "Black Pepper",
+    scientificName: "Piper nigrum",
+    heroImage: "/images/products/black-pepper.jpg",
+    summary:
+      "Lada hitam pilihan dengan aroma tajam, warna gelap alami, kadar air terkendali, dan proses sortasi untuk kebutuhan ekspor.",
+    features: [
+      { title: "Sortasi Premium", en: "Premium Sorting", icon: "CircleCheck" },
+      { title: "Aroma Tajam", en: "Strong Aroma", icon: "Award" },
+    ],
+    productsTitle: "Produk Lada Hitam Kami",
+    variants: [
+      { name: "Lada Hitam Biji", en: "Whole Black Pepper", image: "/images/products/black-pepper.jpg" },
+      {
+        name: "Lada Hitam Bubuk",
+        en: "Black Pepper Powder",
+        image:
+          "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Lada Pecah",
+        en: "Crushed Pepper",
+        image:
+          "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Lada Premium",
+        en: "Premium Grade",
+        image: "/images/products/black-pepper.jpg",
+      },
+    ],
+    specs: [
+      { label: "Nama Produk", value: "Lada Hitam" },
+      { label: "Asal", value: "Indonesia" },
+      { label: "Bentuk", value: "Biji utuh, bubuk, crushed" },
+      { label: "Warna", value: "Hitam gelap alami" },
+      { label: "Aroma", value: "Khas lada, kuat dan tajam" },
+      { label: "Kadar Air", value: "Maksimal 12%" },
+      { label: "Benda Asing", value: "Maksimal 1%" },
+      { label: "Kemasan", value: "25 kg/karung atau sesuai permintaan" },
+    ],
+    standards: [
+      "Biji lada disortasi untuk menjaga ukuran, warna, dan kebersihan.",
+      "Produk harus bebas dari serangga, jamur, dan bau asing.",
+      "Kadar air dikendalikan untuk menjaga mutu selama penyimpanan.",
+      "Tidak tercampur batu, tanah, atau benda asing berlebih.",
+      "Pengemasan menggunakan material food grade sesuai kebutuhan buyer.",
+    ],
+  },
+  {
+    slug: "temulawak",
+    name: "TEMULAWAK",
+    en: "Curcuma Xanthorrhiza",
+    scientificName: "Curcuma xanthorrhiza",
+    heroImage:
+      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1500&q=88",
+    summary:
+      "Temulawak Indonesia dengan rimpang pilihan, aroma herbal khas, warna kuning alami, dan pengolahan bersih untuk pasar ekspor.",
+    features: [
+      { title: "Herbal Indonesia", en: "Indonesian Herbal", icon: "Leaf" },
+      { title: "Siap Ekspor", en: "Export Ready", icon: "Globe2" },
+    ],
+    productsTitle: "Produk Temulawak Kami",
+    variants: [
+      {
+        name: "Temulawak Segar",
+        en: "Fresh Curcuma",
+        image:
+          "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Temulawak Kering",
+        en: "Dried Curcuma",
+        image:
+          "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Temulawak Bubuk",
+        en: "Curcuma Powder",
+        image:
+          "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=700&q=85",
+      },
+      {
+        name: "Ekstrak Temulawak",
+        en: "Curcuma Extract",
+        image:
+          "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?auto=format&fit=crop&w=700&q=85",
+      },
+    ],
+    specs: [
+      { label: "Nama Produk", value: "Temulawak" },
+      { label: "Asal", value: "Indonesia" },
+      { label: "Bentuk", value: "Segar, kering, bubuk, ekstrak" },
+      { label: "Warna", value: "Kuning alami" },
+      { label: "Aroma", value: "Khas herbal temulawak" },
+      { label: "Kadar Air", value: "Maks. 10% - 12% untuk produk kering" },
+      { label: "Kebersihan", value: "Bebas tanah, jamur, dan benda asing" },
+      { label: "Kemasan", value: "Karung/karton food grade sesuai permintaan" },
+    ],
+    standards: [
+      "Rimpang dipilih dalam kondisi segar, utuh, dan tidak busuk.",
+      "Produk kering harus memiliki kadar air terkendali.",
+      "Bebas tanah, jamur, serangga, dan bau asing.",
+      "Pengolahan dilakukan secara bersih untuk menjaga mutu herbal.",
+      "Spesifikasi akhir dapat menyesuaikan permintaan buyer dan negara tujuan.",
+    ],
   },
 ];
 
