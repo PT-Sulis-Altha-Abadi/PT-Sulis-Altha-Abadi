@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import Footer from "@/components/layout/Footer";
 import FloatingFaq from "@/components/layout/FloatingFaq";
 import Header from "@/components/layout/Header";
@@ -29,6 +30,9 @@ export const metadata = {
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
+  other: {
+    "google-adsense-account": "ca-pub-8957974802215246",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -38,6 +42,13 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
+        <Script
+          id="google-adsense"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8957974802215246"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Header />
         <PublicViewportFit>
           <MainShell>{children}</MainShell>
