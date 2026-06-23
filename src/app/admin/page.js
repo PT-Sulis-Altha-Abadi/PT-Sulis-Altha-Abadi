@@ -38,4 +38,5 @@ export default async function AdminDashboardPage() {
       <AdminDashboardClient initialData={dashboardData} messages={messages} />
     </AdminShell>
   );
+  
 }
