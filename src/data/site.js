@@ -656,6 +656,272 @@ export const telecomProjects = [
   },
 ];
 
+const assetProject = (folder, file) => `/${folder}/${file}`;
+
+export const portfolioProjects = [
+  {
+    number: 1,
+    slug: "pt-tekno-infrastruktur-sukses",
+    title: "PT Tekno Infrastruktur Sukses",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT Tekno Infrastruktur Sukses",
+    folder: "1. PT Tekno Infrastruktur Sukses",
+    image: assetProject(
+      "1. PT Tekno Infrastruktur Sukses",
+      "WhatsApp Image 2026-04-18 at 10.41.29(1).jpeg",
+    ),
+    summary:
+      "Dokumentasi pekerjaan konstruksi sipil untuk kebutuhan proyek PT Tekno Infrastruktur Sukses.",
+    scope: ["Pekerjaan sipil lapangan", "Koordinasi pelaksanaan proyek", "Dokumentasi progres pekerjaan"],
+    gallery: [
+      "WhatsApp Image 2026-04-18 at 10.41.29(1).jpeg",
+      "WhatsApp Image 2026-04-18 at 10.41.29.jpeg",
+      "WhatsApp Image 2026-04-18 at 10.41.30.jpeg",
+      "WhatsApp Image 2026-04-18 at 10.46.49(1).jpeg",
+      "WhatsApp Image 2026-04-18 at 10.46.49.jpeg",
+    ],
+  },
+  {
+    number: 2,
+    slug: "pt-indonesia-comnets-plus",
+    title: "PT. Indonesia Comnets Plus",
+    category: "telecommunication",
+    categoryLabel: "Telekomunikasi",
+    meta: "Telekomunikasi",
+    client: "PT. Indonesia Comnets Plus",
+    folder: "2. PT. INDONESIA COMNETS PLUS",
+    image: assetProject(
+      "2. PT. INDONESIA COMNETS PLUS",
+      "WhatsApp Image 2026-05-04 at 15.37.29(1).jpeg",
+    ),
+    summary:
+      "Dokumentasi pekerjaan telekomunikasi untuk kebutuhan jaringan dan infrastruktur PT Indonesia Comnets Plus.",
+    scope: ["Pekerjaan jaringan", "Instalasi dan pengecekan lapangan", "Dokumentasi pekerjaan telekomunikasi"],
+    gallery: [
+      "WhatsApp Image 2026-05-04 at 15.37.29(1).jpeg",
+      "WhatsApp Image 2026-05-04 at 15.37.29(2).jpeg",
+      "WhatsApp Image 2026-05-04 at 15.37.29.jpeg",
+      "WhatsApp Image 2026-05-04 at 15.38.53(1).jpeg",
+      "WhatsApp Image 2026-05-04 at 15.38.53(2).jpeg",
+    ],
+  },
+  {
+    number: 3,
+    slug: "pt-sarimelati-kencana-tbk-pizza-hut",
+    title: "PT. Sarimelati Kencana Tbk (Pizza Hut)",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT. Sarimelati Kencana Tbk",
+    folder: "3. PT. SARIMELATI KENCANA Tbk (Pizza Hut)",
+    image: assetProject(
+      "3. PT. SARIMELATI KENCANA Tbk (Pizza Hut)",
+      "WhatsApp Image 2024-08-21 at 10.22.02.jpeg",
+    ),
+    summary:
+      "Dokumentasi pekerjaan konstruksi sipil dan perbaikan area komersial untuk Sarimelati Kencana.",
+    scope: ["Pekerjaan area outlet", "Perbaikan sipil", "Finishing dan dokumentasi progres"],
+    gallery: [
+      "WhatsApp Image 2024-08-21 at 10.22.02.jpeg",
+      "WhatsApp Image 2024-08-21 at 10.22.27.jpeg",
+      "WhatsApp Image 2024-08-21 at 10.24.19(1).jpeg",
+      "WhatsApp Image 2024-08-21 at 10.24.19.jpeg",
+      "WhatsApp Image 2024-08-21 at 10.24.30.jpeg",
+    ],
+  },
+  {
+    number: 4,
+    slug: "pt-gojek-indonesia",
+    title: "PT. Gojek Indonesia",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT. Gojek Indonesia",
+    folder: "4. PT. Gojek Indonesia",
+    image: assetProject("4. PT. Gojek Indonesia", "Pipa Buangan Bocor Westafel LT.1.jpeg"),
+    summary:
+      "Dokumentasi pekerjaan perbaikan sipil, plumbing, dan penanganan area gedung untuk Gojek Indonesia.",
+    scope: ["Perbaikan plumbing", "Penanganan kebocoran", "Pekerjaan sipil area gedung"],
+    gallery: [
+      "Pipa Buangan Bocor Westafel LT.1.jpeg",
+      "Pipa Buangan Bocor Westafel LT.2.jpeg",
+      "Sumber Genangan Air LT.1 yang akan dibuatkan sekat batu bata agar air tidak masuk.jpeg",
+      "Titik 1 Kebocoran Plafon LT.3.jpeg",
+      "Titik 2 Kebocoran Plafon LT.3.jpeg",
+    ],
+  },
+  {
+    number: 5,
+    slug: "pt-trakindo-utama",
+    title: "PT. Trakindo Utama",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT. Trakindo Utama",
+    folder: "5. PT. TRAKINDO UTAMA",
+    image: assetProject("5. PT. TRAKINDO UTAMA", "WhatsApp Image 2023-11-17 at 15.52.04.jpeg"),
+    summary:
+      "Dokumentasi pekerjaan konstruksi sipil dan pemeliharaan fasilitas untuk PT Trakindo Utama.",
+    scope: ["Pekerjaan sipil fasilitas", "Koordinasi area kerja", "Dokumentasi hasil pekerjaan"],
+    gallery: [
+      "WhatsApp Image 2023-11-17 at 15.52.04.jpeg",
+      "WhatsApp Image 2023-11-17 at 15.52.05(1).jpeg",
+      "WhatsApp Image 2023-11-17 at 15.52.05.jpeg",
+      "WhatsApp Image 2023-11-17 at 15.53.07(1).jpeg",
+      "WhatsApp Image 2023-11-17 at 15.53.07.jpeg",
+    ],
+  },
+  {
+    number: 6,
+    slug: "pt-sriboga-marugame-indonesia",
+    title: "PT. Sriboga Marugame Indonesia",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT. Sriboga Marugame Indonesia",
+    folder: "6. PT. SRIBOGA MARUGAME INDONESIA",
+    image: assetProject(
+      "6. PT. SRIBOGA MARUGAME INDONESIA",
+      "WhatsApp Image 2026-05-18 at 10.46.21.jpeg",
+    ),
+    summary:
+      "Dokumentasi pekerjaan konstruksi sipil dan perbaikan area restoran untuk Sriboga Marugame Indonesia.",
+    scope: ["Pekerjaan area restoran", "Perbaikan sipil", "Finishing dan dokumentasi progres"],
+    gallery: [
+      "WhatsApp Image 2026-05-18 at 10.46.21.jpeg",
+      "WhatsApp Image 2026-05-18 at 10.50.40.jpeg",
+      "WhatsApp Image 2026-05-18 at 10.53.43.jpeg",
+      "WhatsApp Image 2026-05-21 at 09.29.00.jpeg",
+      "WhatsApp Image 2026-05-21 at 16.49.17.jpeg",
+    ],
+  },
+  {
+    number: 7,
+    slug: "pt-salltek-dumpang-jaya",
+    title: "PT. Salltek Dumpang Jaya",
+    category: "telecommunication",
+    categoryLabel: "Telekomunikasi",
+    meta: "Telekomunikasi",
+    client: "PT. Salltek Dumpang Jaya",
+    folder: "7. PT. SALLTEK DUMPANG JAYA",
+    image: assetProject(
+      "7. PT. SALLTEK DUMPANG JAYA",
+      "WhatsApp Image 2026-06-04 at 12.55.18(1).jpeg",
+    ),
+    summary:
+      "Dokumentasi pekerjaan telekomunikasi dan instalasi jaringan untuk PT Salltek Dumpang Jaya.",
+    scope: ["Pekerjaan jaringan telekomunikasi", "Instalasi lapangan", "Dokumentasi progres"],
+    gallery: [
+      "WhatsApp Image 2026-06-04 at 12.55.18(1).jpeg",
+      "WhatsApp Image 2026-06-04 at 12.55.18.jpeg",
+      "WhatsApp Image 2026-06-04 at 12.55.19(1).jpeg",
+      "WhatsApp Image 2026-06-04 at 12.55.19(2).jpeg",
+      "WhatsApp Image 2026-06-04 at 12.55.19.jpeg",
+    ],
+  },
+  {
+    number: 8,
+    slug: "pt-linknet",
+    title: "PT. Linknet",
+    category: "telecommunication",
+    categoryLabel: "Telekomunikasi",
+    meta: "Telekomunikasi",
+    client: "PT. Linknet",
+    folder: "8. PT. LINKNET",
+    image: assetProject("8. PT. LINKNET", "WhatsApp Image 2025-07-21 at 16.52.00.jpeg"),
+    summary:
+      "Dokumentasi pekerjaan instalasi dan penanganan jaringan telekomunikasi untuk PT Linknet.",
+    scope: ["Instalasi jaringan", "Pengecekan perangkat", "Dokumentasi pekerjaan lapangan"],
+    gallery: [
+      "WhatsApp Image 2025-07-21 at 16.52.00.jpeg",
+      "WhatsApp Image 2025-07-21 at 16.52.02.jpeg",
+      "WhatsApp Image 2025-07-21 at 16.52.03(1).jpeg",
+      "WhatsApp Image 2025-07-21 at 16.52.03(2).jpeg",
+      "WhatsApp Image 2025-07-21 at 16.52.03.jpeg",
+    ],
+  },
+  {
+    number: 9,
+    slug: "pt-smarttelecom-smartfren",
+    title: "PT. Smarttelecom (Smartfren)",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT. Smarttelecom (Smartfren)",
+    folder: "9. PT. Smarttelecom (Smartfren)",
+    image: assetProject(
+      "9. PT. Smarttelecom (Smartfren)",
+      "WhatsApp Image 2022-11-15 at 11.07.57(1).jpeg",
+    ),
+    summary:
+      "Dokumentasi pekerjaan konstruksi sipil untuk kebutuhan fasilitas PT Smarttelecom Smartfren.",
+    scope: ["Pekerjaan sipil fasilitas", "Pekerjaan area teknis", "Dokumentasi progres pekerjaan"],
+    gallery: [
+      "WhatsApp Image 2022-11-15 at 11.07.57(1).jpeg",
+      "WhatsApp Image 2022-11-15 at 11.07.57.jpeg",
+      "WhatsApp Image 2022-11-15 at 11.07.58(1).jpeg",
+      "WhatsApp Image 2022-11-15 at 11.07.58.jpeg",
+      "WhatsApp Image 2022-11-15 at 11.07.59(1).jpeg",
+    ],
+  },
+  {
+    number: 10,
+    slug: "pt-pln-persero",
+    title: "PT. PLN (Persero)",
+    category: "telecommunication",
+    categoryLabel: "Telekomunikasi",
+    meta: "Telekomunikasi",
+    client: "PT. PLN (Persero)",
+    folder: "10. PT. PLN (PERSERO)",
+    image: assetProject("10. PT. PLN (PERSERO)", "WhatsApp Image 2026-06-04 at 13.12.05.jpeg"),
+    summary:
+      "Dokumentasi pekerjaan telekomunikasi dan pendukung jaringan untuk kebutuhan PT PLN Persero.",
+    scope: ["Pekerjaan jaringan", "Pengecekan lapangan", "Dokumentasi progres pekerjaan"],
+    gallery: [
+      "WhatsApp Image 2026-06-04 at 13.12.05.jpeg",
+      "WhatsApp Image 2026-06-04 at 13.12.06.jpeg",
+      "WhatsApp Image 2026-06-04 at 13.12.09.jpeg",
+      "WhatsApp Image 2026-06-04 at 13.12.10(1).jpeg",
+      "WhatsApp Image 2026-06-04 at 13.12.10(2).jpeg",
+    ],
+  },
+  {
+    number: 11,
+    slug: "pt-gudang-garam-tbk",
+    title: "PT. Gudang Garam Tbk",
+    category: "construction",
+    categoryLabel: "Konstruksi Sipil",
+    meta: "Konstruksi Sipil",
+    client: "PT. Gudang Garam Tbk",
+    folder: "11. PT. GUDANG GARAM Tbk",
+    image: assetProject("11. PT. GUDANG GARAM Tbk", "WhatsApp Image 2024-01-22 at 11.16.17.jpeg"),
+    summary:
+      "Dokumentasi pekerjaan konstruksi sipil dan penanganan area fasilitas untuk PT Gudang Garam Tbk.",
+    scope: ["Pekerjaan sipil fasilitas", "Perbaikan area kerja", "Dokumentasi hasil pekerjaan"],
+    gallery: [
+      "WhatsApp Image 2024-01-22 at 11.16.17.jpeg",
+      "WhatsApp Image 2024-01-22 at 11.16.18(1).jpeg",
+      "WhatsApp Image 2024-01-22 at 11.16.18(2).jpeg",
+      "WhatsApp Image 2024-01-22 at 11.16.18.jpeg",
+      "WhatsApp Image 2024-01-22 at 11.16.19(1).jpeg",
+    ],
+  },
+].map((project) => ({
+  ...project,
+  href: `/projects/${project.slug}`,
+  gallery: project.gallery.map((file) => assetProject(project.folder, file)),
+}));
+
+export const constructionPortfolioProjects = portfolioProjects.filter(
+  (project) => project.category === "construction",
+);
+
+export const telecomPortfolioProjects = portfolioProjects.filter(
+  (project) => project.category === "telecommunication",
+);
+
 export const leaders = [
   {
     name: "Alif Aviciena Hendrisyah",

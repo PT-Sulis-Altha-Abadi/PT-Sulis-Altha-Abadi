@@ -351,19 +351,26 @@ export function ProjectStrip({ title, en, projects, compact = false }) {
       <p className={cn("text-base italic text-slate-700", compact && "xl:text-[11px]")}>{en}</p>
       <div className={cn("mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4", compact && "xl:mt-2 xl:gap-2")}>
         {projects.map((project) => (
-          <article key={project.title}>
-            <div className={cn("relative aspect-[4/3] overflow-hidden rounded-md bg-slate-200", compact && "xl:aspect-auto xl:h-[58px]")}>
+          <Link
+            key={project.title}
+            href={project.href ?? "/contact"}
+            className="group block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+          >
+            <div className={cn("relative aspect-[4/3] overflow-hidden rounded-md bg-slate-200", compact && "xl:h-[92px]")}>
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
                 sizes="(min-width: 1024px) 15vw, 50vw"
-                className="object-cover"
+                className={cn(
+                  "object-cover transition duration-500 group-hover:scale-105",
+                  "xl:object-contain xl:group-hover:scale-100",
+                )}
               />
             </div>
-            <h3 className={cn("mt-2 text-sm font-bold text-slate-900", compact && "xl:mt-1 xl:text-[12px]")}>{project.title}</h3>
+            <h3 className={cn("mt-2 text-sm font-bold text-slate-900 transition group-hover:text-brand", compact && "xl:mt-1 xl:text-[12px]")}>{project.title}</h3>
             <p className={cn("text-xs text-slate-600", compact && "xl:text-[11px]")}>{project.meta}</p>
-          </article>
+          </Link>
         ))}
       </div>
     </section>

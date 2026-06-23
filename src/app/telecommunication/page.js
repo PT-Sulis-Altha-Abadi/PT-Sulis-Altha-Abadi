@@ -10,7 +10,7 @@ import Reveal from "@/components/ui/Reveal";
 import {
   telecomFeatures,
   telecomPartners,
-  telecomProjects,
+  telecomPortfolioProjects,
   telecomServices,
 } from "@/data/site";
 
@@ -71,7 +71,7 @@ export default function TelecommunicationPage() {
           <ProjectStrip
             title="PROYEK KAMI"
             en="OUR PROJECTS"
-            projects={telecomProjects}
+            projects={telecomPortfolioProjects}
             compact
           />
           <ClientLogoGrid

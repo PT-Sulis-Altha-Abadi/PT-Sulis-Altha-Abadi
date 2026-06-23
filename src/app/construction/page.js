@@ -9,9 +9,9 @@ import {
 import Reveal from "@/components/ui/Reveal";
 import {
   clients,
+  constructionPortfolioProjects,
   constructionClients,
   constructionFeatures,
-  constructionProjects,
   constructionServices,
 } from "@/data/site";
   
@@ -77,7 +77,7 @@ export default function ConstructionPage() {
           <ProjectStrip
             title="PORTFOLIO PROYEK"
             en="PROJECT PORTFOLIO"
-            projects={constructionProjects}
+            projects={constructionPortfolioProjects}
             compact
           />
           <ClientLogoGrid
