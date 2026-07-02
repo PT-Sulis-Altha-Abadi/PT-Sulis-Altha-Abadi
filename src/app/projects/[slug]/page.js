@@ -1,9 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { notFound } from "next/navigation";
 import Icon from "@/components/Icon";
+import ProjectLightboxGallery from "@/components/sections/ProjectLightboxGallery";
 import Reveal from "@/components/ui/Reveal";
 import { portfolioProjects } from "@/data/site";
+
+const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+
+function getProjectImages(project) {
+  const folderPath = path.join(process.cwd(), "public", project.folder);
+
+  if (!fs.existsSync(folderPath)) {
+    return project.gallery;
+  }
+
+  const files = fs
+    .readdirSync(folderPath, { withFileTypes: true })
+    .filter((item) => item.isFile() && imageExtensions.has(path.extname(item.name).toLowerCase()))
+    .map((item) => item.name)
+    .sort((a, b) => a.localeCompare(b, "id", { numeric: true, sensitivity: "base" }));
+
+  return files.length > 0 ? files.map((file) => `/${project.folder}/${file}`) : project.gallery;
+}
 
 export function generateStaticParams() {
   return portfolioProjects.map((project) => ({
@@ -37,6 +58,7 @@ export default async function ProjectDetailPage({ params }) {
 
   const parentHref = project.category === "construction" ? "/construction" : "/telecommunication";
   const parentLabel = project.category === "construction" ? "Konstruksi Barang & Jasa" : "Telekomunikasi";
+  const projectImages = getProjectImages(project);
   const relatedProjects = portfolioProjects
     .filter((item) => item.category === project.category && item.slug !== project.slug)
     .slice(0, 3);
@@ -125,27 +147,16 @@ export default async function ProjectDetailPage({ params }) {
 
           <Reveal delay={80}>
             <article className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm xl:p-3.5">
-              <h2 className="text-xl font-extrabold text-brand xl:text-[16px]">DOKUMENTASI PROYEK</h2>
-              <p className="text-sm italic text-slate-700 xl:text-[11px]">Project Documentation</p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:mt-3 xl:gap-2">
-                {project.gallery.map((image, index) => (
-                  <div
-                    key={image}
-                    className="group relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100 shadow-sm xl:aspect-auto xl:h-[110px]"
-                  >
-                    <Image
-                      src={image}
-                      alt={`${project.title} dokumentasi ${index + 1}`}
-                      fill
-                      sizes="(min-width: 1024px) 20vw, 50vw"
-                      className="object-cover transition duration-500 group-hover:scale-105 xl:object-contain xl:group-hover:scale-100"
-                    />
-                    <span className="absolute left-2 top-2 rounded-full bg-slate-950/70 px-2 py-1 text-[10px] font-bold text-white">
-                      {index + 1}
-                    </span>
-                  </div>
-                ))}
+              <div className="flex flex-wrap items-end justify-between gap-2">
+                <div>
+                  <h2 className="text-xl font-extrabold text-brand xl:text-[16px]">DOKUMENTASI PROYEK</h2>
+                  <p className="text-sm italic text-slate-700 xl:text-[11px]">Project Documentation</p>
+                </div>
+                <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-extrabold text-brand xl:text-[10px]">
+                  {projectImages.length} Foto
+                </span>
               </div>
+              <ProjectLightboxGallery images={projectImages} title={project.title} />
             </article>
           </Reveal>
         </div>
