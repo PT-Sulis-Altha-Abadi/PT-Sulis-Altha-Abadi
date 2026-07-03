@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
@@ -27,30 +30,82 @@ export default function AdminShell({
   fitToViewport = false,
   scrollMain = false,
 }) {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem("admin-sidebar-collapsed") === "true";
+  });
+
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed((current) => {
+      const nextValue = !current;
+      window.localStorage.setItem("admin-sidebar-collapsed", String(nextValue));
+      return nextValue;
+    });
+  };
+
   return (
     <section className="admin-shell flex h-screen w-full overflow-hidden bg-[#0b1220] text-white">
-      <aside className="hidden h-full w-[210px] shrink-0 flex-col border-r border-white/10 bg-[#0b1626] lg:flex 2xl:w-[230px]">
-        <div className="border-b border-white/10 px-3 py-3">
-          <Link href="/admin" className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-md">
-              <BrandMark className="h-9 w-9" />
-            </span>
-            <span className="min-w-0">
-              <span className="block text-[12px] font-extrabold uppercase leading-4 tracking-[0.14em] text-white">
-                ALTHA EXPORT
+      <aside
+        className={cn(
+          "hidden h-full shrink-0 flex-col border-r border-white/10 bg-[#0b1626] transition-[width] duration-300 ease-out lg:flex",
+          isSidebarCollapsed ? "w-[64px]" : "w-[210px] 2xl:w-[230px]",
+        )}
+      >
+        <div className={cn("border-b border-white/10 py-3", isSidebarCollapsed ? "px-2" : "px-3")}>
+          <div className={cn("flex items-center", isSidebarCollapsed ? "justify-center" : "justify-between gap-2")}>
+            <Link
+              href="/admin"
+              className={cn("flex min-w-0 items-center", isSidebarCollapsed ? "justify-center" : "gap-2.5")}
+              title="Altha Export Dashboard"
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-md">
+                <BrandMark className="h-9 w-9" />
               </span>
-              <span className="mt-0.5 block text-[9px] font-bold uppercase tracking-[0.24em] text-emerald-300/70">
-                Dashboard
-              </span>
-            </span>
-          </Link>
+              {!isSidebarCollapsed ? (
+                <span className="min-w-0">
+                  <span className="block text-[12px] font-extrabold uppercase leading-4 tracking-[0.14em] text-white">
+                    ALTHA EXPORT
+                  </span>
+                  <span className="mt-0.5 block text-[9px] font-bold uppercase tracking-[0.24em] text-emerald-300/70">
+                    Dashboard
+                  </span>
+                </span>
+              ) : null}
+            </Link>
+
+            {!isSidebarCollapsed ? (
+              <button
+                type="button"
+                onClick={toggleSidebar}
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-emerald-300/40 hover:text-white"
+                aria-label="Tutup daftar menu admin"
+                title="Tutup daftar menu"
+              >
+                <Icon name="ChevronLeft" className="h-4 w-4" />
+              </button>
+            ) : null}
+          </div>
+
+          {isSidebarCollapsed ? (
+            <button
+              type="button"
+              onClick={toggleSidebar}
+              className="mt-3 grid h-8 w-full place-items-center rounded-md border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-emerald-300/40 hover:text-white"
+              aria-label="Buka daftar menu admin"
+              title="Buka daftar menu"
+            >
+              <Icon name="ChevronRight" className="h-4 w-4" />
+            </button>
+          ) : null}
         </div>
 
-        <div className="px-3 pb-1 pt-2 text-[9px] font-extrabold uppercase tracking-[0.22em] text-slate-500">
-          Menu Utama
-        </div>
+        {!isSidebarCollapsed ? (
+          <div className="px-3 pb-1 pt-2 text-[9px] font-extrabold uppercase tracking-[0.22em] text-slate-500">
+            Menu Utama
+          </div>
+        ) : null}
 
-        <nav className="flex-1 space-y-0.5 overflow-hidden px-2 pb-2 text-sm">
+        <nav className={cn("flex-1 space-y-0.5 overflow-hidden pb-2 text-sm", isSidebarCollapsed ? "px-2 pt-2" : "px-2")}>
           {adminNav.map((item) => {
             const isActive =
               active === "dashboard"
@@ -63,50 +118,57 @@ export default function AdminShell({
               <Link
                 key={item.label}
                 href={item.href}
+                title={item.label}
                 className={cn(
-                  "flex min-h-8 min-w-0 items-center gap-2 rounded-md px-2.5 text-[12px] font-bold leading-tight text-slate-300 transition hover:bg-white/[0.06] hover:text-white",
+                  "relative flex min-h-8 min-w-0 items-center rounded-md text-[12px] font-bold leading-tight text-slate-300 transition hover:bg-white/[0.06] hover:text-white",
+                  isSidebarCollapsed ? "justify-center px-0" : "gap-2 px-2.5",
                   isActive && "bg-emerald-400/15 text-emerald-100 ring-1 ring-emerald-400/25",
                 )}
               >
                 <Icon name={item.icon} className="h-3.5 w-3.5 shrink-0" />
-                <span className="min-w-0 truncate">{item.label}</span>
-                {showBadge ? (
+                {!isSidebarCollapsed ? <span className="min-w-0 truncate">{item.label}</span> : null}
+                {showBadge && !isSidebarCollapsed ? (
                   <span className="ml-auto rounded-full bg-emerald-400/15 px-1.5 py-0.5 text-[9px] text-emerald-200">
                     {messagesCount}
                   </span>
+                ) : null}
+                {showBadge && isSidebarCollapsed ? (
+                  <span className="absolute ml-6 mt-[-18px] h-1.5 w-1.5 rounded-full bg-emerald-300" />
                 ) : null}
               </Link>
             );
           })}
         </nav>
 
-        <div className="shrink-0 border-t border-white/10 p-2.5">
-          <div className="rounded-md border border-white/10 bg-gradient-to-br from-emerald-500/10 to-cyan-500/5 p-2.5">
-            <p className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-emerald-300">
-              Target Bulan Ini
-            </p>
-            <div className="mt-1.5 grid grid-cols-3 gap-1.5">
-              <div>
-                <p className="text-sm font-extrabold leading-tight text-white">3</p>
-                <p className="text-[8px] uppercase tracking-wide text-slate-400">Target</p>
+        {!isSidebarCollapsed ? (
+          <div className="shrink-0 border-t border-white/10 p-2.5">
+            <div className="rounded-md border border-white/10 bg-gradient-to-br from-emerald-500/10 to-cyan-500/5 p-2.5">
+              <p className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-emerald-300">
+                Target Bulan Ini
+              </p>
+              <div className="mt-1.5 grid grid-cols-3 gap-1.5">
+                <div>
+                  <p className="text-sm font-extrabold leading-tight text-white">3</p>
+                  <p className="text-[8px] uppercase tracking-wide text-slate-400">Target</p>
+                </div>
+                <div>
+                  <p className="text-sm font-extrabold leading-tight text-emerald-200">4</p>
+                  <p className="text-[8px] uppercase tracking-wide text-slate-400">Realisasi</p>
+                </div>
+                <div>
+                  <p className="text-sm font-extrabold leading-tight text-emerald-200">133%</p>
+                  <p className="text-[8px] uppercase tracking-wide text-slate-400">Capaian</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-extrabold leading-tight text-emerald-200">4</p>
-                <p className="text-[8px] uppercase tracking-wide text-slate-400">Realisasi</p>
+              <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
+                <div className="h-full w-[78%] rounded-full bg-gradient-to-r from-emerald-400 to-emerald-300" />
               </div>
-              <div>
-                <p className="text-sm font-extrabold leading-tight text-emerald-200">133%</p>
-                <p className="text-[8px] uppercase tracking-wide text-slate-400">Capaian</p>
-              </div>
+              <p className="mt-2 text-[9px] italic leading-snug text-slate-400">
+                &ldquo;Disiplin adalah jembatan antara target dan hasil.&rdquo;
+              </p>
             </div>
-            <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
-              <div className="h-full w-[78%] rounded-full bg-gradient-to-r from-emerald-400 to-emerald-300" />
-            </div>
-            <p className="mt-2 text-[9px] italic leading-snug text-slate-400">
-              &ldquo;Disiplin adalah jembatan antara target dan hasil.&rdquo;
-            </p>
           </div>
-        </div>
+        ) : null}
       </aside>
 
       <div className="flex h-full min-w-0 flex-1 flex-col">
