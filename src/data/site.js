@@ -266,34 +266,32 @@ export const spicesProducts = [
     slug: "kunyit",
     name: "KUNYIT",
     en: "Turmeric",
-    image:
-      "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=80",
+    image: "/images/products/kunyit.jpeg",
   },
   {
     slug: "jahe",
     name: "JAHE",
     en: "Ginger",
-    image: "/images/products/ginger-alt.png",
+    image: "/images/products/jahe.jpeg",
     imageClassName: "object-contain p-4",
   },
   {
     slug: "kayu-manis",
     name: "KAYU MANIS",
     en: "Cinnamon",
-    image: "/images/products/cinnamon.jpg",
+    image: "/images/products/kayumanis.jpeg",
   },
   {
-    slug: "lada-hitam",
-    name: "LADA HITAM",
-    en: "Black Pepper",
-    image: "/images/products/black-pepper.jpg",
+    slug: "cengkeh",
+    name: "CENGKEH",
+    en: "Cloves",
+    image: "/images/products/cengkeh.jpeg",
   },
   {
-    slug: "temulawak",
-    name: "TEMULAWAK",
-    en: "Curcuma Xanthorrhiza",
-    image:
-      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80",
+    slug: "serai-kering",
+    name: "SERAI KERING",
+    en: "Dried Lemongrass",
+    image: "/images/products/seraikering.jpeg",
   },
 ];
 
@@ -303,10 +301,9 @@ export const spiceProductDetails = [
     name: "KUNYIT",
     en: "Turmeric",
     scientificName: "Curcuma longa",
-    heroImage:
-      "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=1500&q=88",
+    heroImage: "/images/products/kunyit.jpeg",
     summary:
-      "Kunyit berkualitas tinggi dengan warna kuning-oranye cerah, aroma khas, dan kandungan kurkumin alami yang tinggi.",
+      "Kunyit berkualitas tinggi dengan warna kuning-oranye cerah alami, aroma khas yang kuat, dan kandungan kurkumin sesuai standar ekspor.",
     features: [
       { title: "Alami & Murni", en: "100% Natural", icon: "Leaf" },
       { title: "Kualitas Terjamin", en: "Export Standard", icon: "ShieldCheck" },
@@ -316,8 +313,7 @@ export const spiceProductDetails = [
       {
         name: "Kunyit Segar",
         en: "Fresh Turmeric",
-        image:
-          "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=85",
+        image: "/images/products/kunyit.jpeg",
       },
       {
         name: "Kunyit Kering",
@@ -328,8 +324,7 @@ export const spiceProductDetails = [
       {
         name: "Kunyit Bubuk",
         en: "Turmeric Powder",
-        image:
-          "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=85",
+        image: "/images/products/kunyit.jpeg",
       },
       {
         name: "Oleoresin Kunyit",
@@ -346,6 +341,8 @@ export const spiceProductDetails = [
       { label: "Aroma", value: "Khas kunyit, kuat" },
       { label: "Kandungan Kurkumin", value: "Minimal 3% - 5%" },
       { label: "Kadar Air", value: "Maks. 10% - 12% kering, maks. 8% bubuk" },
+      { label: "Kehalusan Bubuk", value: "60 - 80 mesh" },
+      { label: "Abu Total", value: "Maksimal 7% - 9%" },
       { label: "Kemasan", value: "25 kg/karung atau sesuai permintaan" },
     ],
     standards: [
@@ -361,7 +358,7 @@ export const spiceProductDetails = [
     name: "JAHE",
     en: "Ginger",
     scientificName: "Zingiber officinale",
-    heroImage: "/images/products/ginger-alt2.jpg",
+    heroImage: "/images/products/jahe.jpeg",
     summary:
       "Jahe ekspor dengan rimpang utuh, aroma hangat khas, bersih dari tanah, serta bebas hama, penyakit, dan jamur.",
     features: [
@@ -370,15 +367,15 @@ export const spiceProductDetails = [
     ],
     productsTitle: "Produk Jahe Kami",
     variants: [
-      { name: "Jahe Segar", en: "Fresh Ginger", image: "/images/products/ginger-alt.png" },
+      { name: "Jahe Segar", en: "Fresh Ginger", image: "/images/products/jahe.jpeg" },
       { name: "Jahe Kering", en: "Dried Ginger", image: "/images/products/ginger.jpg" },
       { name: "Jahe Bubuk", en: "Ginger Powder", image: "/images/products/ginger-alt2.jpg" },
-      { name: "Jahe Emprit", en: "Small White Ginger", image: "/images/products/ginger-alt.png" },
+      { name: "Jahe Emprit", en: "Small White Ginger", image: "/images/products/jahe.jpeg" },
     ],
     specs: [
       { label: "Nama Produk", value: "Jahe" },
       { label: "Asal", value: "Indonesia" },
-      { label: "Jenis Utama", value: "Jahe gajah dan jahe emprit" },
+      { label: "Jenis Utama", value: "Jahe Gajah (Jahe Putih Besar) dan Jahe Emprit" },
       { label: "Bentuk", value: "Segar, kering, bubuk" },
       { label: "Kondisi Fisik", value: "Rimpang utuh, tidak busuk, tidak berjamur" },
       { label: "Kebersihan", value: "Bebas tanah, batu, dan kotoran lainnya" },
@@ -390,7 +387,7 @@ export const spiceProductDetails = [
       "Bebas dari hama, penyakit, dan jamur.",
       "Kualitas memenuhi standar keamanan pangan internasional.",
       "Kadar air jahe kering maksimal 10% - 14%.",
-      "Sortasi dilakukan untuk menjaga ukuran dan kondisi fisik produk.",
+      "Sortasi dilakukan untuk menjaga ukuran, kebersihan, dan kondisi fisik produk.",
     ],
   },
   {
@@ -398,7 +395,7 @@ export const spiceProductDetails = [
     name: "KAYU MANIS",
     en: "Cinnamon",
     scientificName: "Cinnamomum burmannii",
-    heroImage: "/images/products/cinnamon.jpg",
+    heroImage: "/images/products/kayumanis.jpeg",
     summary:
       "Kayu manis cassia Indonesia dengan warna cokelat kemerahan alami, aroma kuat, kering, bersih, dan bebas hama.",
     features: [
@@ -407,7 +404,7 @@ export const spiceProductDetails = [
     ],
     productsTitle: "Produk Kayu Manis Kami",
     variants: [
-      { name: "Kayu Manis Batang", en: "Cinnamon Stick", image: "/images/products/cinnamon.jpg" },
+      { name: "Kayu Manis Batang", en: "Cinnamon Stick", image: "/images/products/kayumanis.jpeg" },
       {
         name: "Kayu Manis Pecah",
         en: "Broken Cinnamon",
@@ -446,112 +443,111 @@ export const spiceProductDetails = [
     ],
   },
   {
-    slug: "lada-hitam",
-    name: "LADA HITAM",
-    en: "Black Pepper",
-    scientificName: "Piper nigrum",
-    heroImage: "/images/products/black-pepper.jpg",
+    slug: "cengkeh",
+    name: "CENGKEH",
+    en: "Cloves",
+    scientificName: "Syzygium aromaticum",
+    heroImage: "/images/products/cengkeh.jpeg",
     summary:
-      "Lada hitam pilihan dengan aroma tajam, warna gelap alami, kadar air terkendali, dan proses sortasi untuk kebutuhan ekspor.",
+      "Cengkeh pilihan Indonesia dengan warna cokelat kemerahan hingga cokelat tua yang cerah, aroma kuat, dan mutu fisik sesuai standar ekspor.",
     features: [
       { title: "Sortasi Premium", en: "Premium Sorting", icon: "CircleCheck" },
-      { title: "Aroma Tajam", en: "Strong Aroma", icon: "Award" },
+      { title: "Aroma Kuat", en: "Strong Aroma", icon: "Award" },
     ],
-    productsTitle: "Produk Lada Hitam Kami",
+    productsTitle: "Produk Cengkeh Kami",
     variants: [
-      { name: "Lada Hitam Biji", en: "Whole Black Pepper", image: "/images/products/black-pepper.jpg" },
+      { name: "Cengkeh Utuh", en: "Whole Cloves", image: "/images/products/cengkeh.jpeg" },
       {
-        name: "Lada Hitam Bubuk",
-        en: "Black Pepper Powder",
-        image:
-          "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=700&q=85",
+        name: "Cengkeh Kering",
+        en: "Dried Cloves",
+        image: "/images/products/cengkeh.jpeg",
       },
       {
-        name: "Lada Pecah",
-        en: "Crushed Pepper",
-        image:
-          "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85",
+        name: "Cengkeh Sortasi",
+        en: "Sorted Cloves",
+        image: "/images/products/cengkeh.jpeg",
       },
       {
-        name: "Lada Premium",
+        name: "Cengkeh Premium",
         en: "Premium Grade",
-        image: "/images/products/black-pepper.jpg",
+        image: "/images/products/cengkeh.jpeg",
       },
     ],
     specs: [
-      { label: "Nama Produk", value: "Lada Hitam" },
+      { label: "Nama Produk", value: "Cengkeh" },
       { label: "Asal", value: "Indonesia" },
-      { label: "Bentuk", value: "Biji utuh, bubuk, crushed" },
-      { label: "Warna", value: "Hitam gelap alami" },
-      { label: "Aroma", value: "Khas lada, kuat dan tajam" },
-      { label: "Kadar Air", value: "Maksimal 12%" },
-      { label: "Benda Asing", value: "Maksimal 1%" },
-      { label: "Kemasan", value: "25 kg/karung atau sesuai permintaan" },
+      { label: "Bentuk", value: "Whole cloves, utuh, tidak keriput" },
+      { label: "Warna", value: "Cokelat kemerahan hingga cokelat tua cerah dan seragam" },
+      { label: "Aroma", value: "Kuat, tajam, dan khas cengkeh" },
+      { label: "Kadar Air", value: "Maksimal 10% - 14%" },
+      { label: "Benda Asing", value: "Maksimal 0,5%" },
+      { label: "Gagang/Batang", value: "Maksimal 2% - 5%" },
+      { label: "Cengkeh Rusak", value: "Maksimal 0% - 1%" },
+      { label: "Minyak Atsiri", value: "Minimal 15% - 20%" },
+      { label: "Eugenol", value: "Minimal 70% - 80%" },
+      { label: "Kemasan", value: "Karung goni baru atau plastik food grade dengan inner liner PE" },
     ],
     standards: [
-      "Biji lada disortasi untuk menjaga ukuran, warna, dan kebersihan.",
-      "Produk harus bebas dari serangga, jamur, dan bau asing.",
-      "Kadar air dikendalikan untuk menjaga mutu selama penyimpanan.",
-      "Tidak tercampur batu, tanah, atau benda asing berlebih.",
-      "Pengemasan menggunakan material food grade sesuai kebutuhan buyer.",
+      "Kepala bunga tertutup rapat dan padat dengan bentuk utuh.",
+      "Tidak keriput dan memiliki aroma kuat, tajam, serta khas cengkeh.",
+      "Bebas serangga, kutu, jamur, bau asing, dan bahan kimia.",
+      "Berat bersih umumnya 50 kg per karung atau menyesuaikan permintaan buyer.",
+      "Pengemasan menggunakan karung goni baru atau plastik food grade dengan inner liner PE.",
     ],
   },
   {
-    slug: "temulawak",
-    name: "TEMULAWAK",
-    en: "Curcuma Xanthorrhiza",
-    scientificName: "Curcuma xanthorrhiza",
-    heroImage:
-      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1500&q=88",
+    slug: "serai-kering",
+    name: "SERAI KERING",
+    en: "Dried Lemongrass",
+    scientificName: "Cymbopogon citratus",
+    heroImage: "/images/products/seraikering.jpeg",
     summary:
-      "Temulawak Indonesia dengan rimpang pilihan, aroma herbal khas, warna kuning alami, dan pengolahan bersih untuk pasar ekspor.",
+      "Serai kering Indonesia dengan potongan bersih, warna alami, aroma segar khas lemongrass, dan proses persiapan higienis untuk pasar ekspor.",
     features: [
       { title: "Herbal Indonesia", en: "Indonesian Herbal", icon: "Leaf" },
       { title: "Siap Ekspor", en: "Export Ready", icon: "Globe2" },
     ],
-    productsTitle: "Produk Temulawak Kami",
+    productsTitle: "Produk Serai Kering Kami",
     variants: [
       {
-        name: "Temulawak Segar",
-        en: "Fresh Curcuma",
-        image:
-          "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85",
+        name: "Serai Segar",
+        en: "Fresh Lemongrass",
+        image: "/images/products/seraikering.jpeg",
       },
       {
-        name: "Temulawak Kering",
-        en: "Dried Curcuma",
-        image:
-          "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=85",
+        name: "Serai Kering",
+        en: "Dried Lemongrass",
+        image: "/images/products/seraikering.jpeg",
       },
       {
-        name: "Temulawak Bubuk",
-        en: "Curcuma Powder",
-        image:
-          "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=700&q=85",
+        name: "Serai Potong",
+        en: "Cut Lemongrass",
+        image: "/images/products/seraikering.jpeg",
       },
       {
-        name: "Ekstrak Temulawak",
-        en: "Curcuma Extract",
-        image:
-          "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?auto=format&fit=crop&w=700&q=85",
+        name: "Serai Premium",
+        en: "Premium Grade",
+        image: "/images/products/seraikering.jpeg",
       },
     ],
     specs: [
-      { label: "Nama Produk", value: "Temulawak" },
+      { label: "Nama Produk", value: "Serai Kering" },
       { label: "Asal", value: "Indonesia" },
-      { label: "Bentuk", value: "Segar, kering, bubuk, ekstrak" },
-      { label: "Warna", value: "Kuning alami" },
-      { label: "Aroma", value: "Khas herbal temulawak" },
-      { label: "Kadar Air", value: "Maks. 10% - 12% untuk produk kering" },
-      { label: "Kebersihan", value: "Bebas tanah, jamur, dan benda asing" },
+      { label: "Bentuk", value: "Serai kering potong" },
+      { label: "Panjang Potongan", value: "25 - 40 cm" },
+      { label: "Kebersihan", value: "Bebas tanah dan kotoran" },
+      { label: "Warna", value: "Warna alami serai kering" },
+      { label: "Aroma", value: "Wangi segar khas lemongrass" },
+      { label: "Kondisi Fisik", value: "Tidak busuk, tidak rusak, tidak layu" },
+      { label: "Proses Persiapan", value: "Daun tua dibuang dan dicuci bersih sebelum pengeringan" },
       { label: "Kemasan", value: "Karung/karton food grade sesuai permintaan" },
     ],
     standards: [
-      "Rimpang dipilih dalam kondisi segar, utuh, dan tidak busuk.",
-      "Produk kering harus memiliki kadar air terkendali.",
-      "Bebas tanah, jamur, serangga, dan bau asing.",
-      "Pengolahan dilakukan secara bersih untuk menjaga mutu herbal.",
-      "Spesifikasi akhir dapat menyesuaikan permintaan buyer dan negara tujuan.",
+      "Produk harus bebas tanah, kotoran, dan kontaminasi yang mengganggu mutu.",
+      "Serai kering memiliki warna alami dan aroma wangi segar khas lemongrass.",
+      "Kondisi fisik tidak busuk, tidak rusak, dan tidak layu.",
+      "Dokumen ekspor dapat mencakup Health Certificate, Phytosanitary Certificate, Certificate of Origin, sertifikat organik, dan dokumen keamanan pangan sesuai negara tujuan.",
+      "Spesifikasi akhir dapat menyesuaikan permintaan buyer dan regulasi negara tujuan.",
     ],
   },
 ];
@@ -578,7 +574,7 @@ export const faqs = [
   {
     question: "Produk ekspor apa saja yang ditampilkan di website ini?",
     answer:
-      "Produk rempah yang ditampilkan meliputi kunyit, jahe, kayu manis, lada hitam, dan temulawak untuk kebutuhan pasar ekspor.",
+      "Produk rempah yang ditampilkan meliputi kunyit, jahe, kayu manis, cengkeh, dan serai kering untuk kebutuhan pasar ekspor.",
   },
   {
     question: "Layanan konstruksi apa yang tersedia?",
