@@ -55,7 +55,7 @@ function extractAiText(payload) {
 export async function POST(request) {
   try {
     const apiKey = process.env.INCEPTION_API_KEY;
-    const model = process.env.INCEPTION_MODEL || "mercury";
+    const model = process.env.INCEPTION_MODEL || "mercury-2";
 
     if (!apiKey) {
       return Response.json(
