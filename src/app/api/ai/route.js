@@ -13,7 +13,7 @@ import {
 export const runtime = "nodejs";
 
 const maxQuestionLength = 800;
-const geminiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models";
+const inceptionEndpoint = "https://api.inceptionlabs.ai/v1/chat/completions";
 
 function toList(items, mapper) {
   return items.map(mapper).join(", ");
@@ -48,24 +48,18 @@ ${faqText}
 `.trim();
 }
 
-function extractGeminiText(payload) {
-  return (
-    payload?.candidates?.[0]?.content?.parts
-      ?.map((part) => part.text)
-      .filter(Boolean)
-      .join("\n")
-      .trim() ?? ""
-  );
+function extractAiText(payload) {
+  return String(payload?.choices?.[0]?.message?.content ?? "").trim();
 }
 
 export async function POST(request) {
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
-    const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+    const apiKey = process.env.INCEPTION_API_KEY;
+    const model = process.env.INCEPTION_MODEL || "mercury";
 
     if (!apiKey) {
       return Response.json(
-        { answer: "AI belum aktif. GEMINI_API_KEY belum diatur di server." },
+        { answer: "AI belum aktif. INCEPTION_API_KEY belum diatur di server." },
         { status: 500 },
       );
     }
@@ -100,23 +94,22 @@ Pertanyaan user:
 ${question}
 `.trim();
 
-    const response = await fetch(`${geminiEndpoint}/${model}:generateContent`, {
+    const response = await fetch(inceptionEndpoint, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
-        "x-goog-api-key": apiKey,
       },
       body: JSON.stringify({
-        contents: [
+        model,
+        messages: [
           {
             role: "user",
-            parts: [{ text: prompt }],
+            content: prompt,
           },
         ],
-        generationConfig: {
-          temperature: 0.35,
-          maxOutputTokens: 420,
-        },
+        temperature: 0.35,
+        max_tokens: 420,
       }),
     });
 
@@ -130,7 +123,7 @@ ${question}
       return Response.json({ answer: message }, { status: response.status });
     }
 
-    const answer = extractGeminiText(payload);
+    const answer = extractAiText(payload);
 
     return Response.json({
       answer:
